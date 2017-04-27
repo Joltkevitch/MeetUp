@@ -17,11 +17,11 @@ class CreateUsersTable extends Migration {
 			$table->integer('USER_ID', true);
 			$table->string('FIRST_NAME', 30);
 			$table->string('LAST_NAME', 30);
-			$table->integer('LOCATION_ID')->index('LOCATION_ID');
-			$table->string('EMAIL', 45)->unique('EMAIL');
-			$table->string('PASSWORD', 16);
-			$table->boolean('IS_ACTIVE');
 			$table->string('TITLE', 30)->nullable();
+			$table->integer('LOCATION_ID')->index('LOCATION_ID');
+			$table->string('EMAIL', 45)->unique('EMAIL_2');
+			$table->string('PASSWORD', 20);
+			$table->boolean('IS_ACTIVE');
 			$table->primary(['USER_ID','EMAIL']);
 		});
 	}

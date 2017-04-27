@@ -15,7 +15,7 @@ border:1px solid black;
 border-radius:8px;
 color:white;
 background-image:url("../imgs/redeemForm.jpg");
-background-size:120%;
+background-size:cover;
 background-repeat:no-repeat;
 padding-top:8px;
 font-family: 'Roboto', sans-serif;
@@ -109,7 +109,7 @@ input{
     height: 50px;
 }
 #pass,#newPass{
-    margin-top: 5px;
+    margin-top: 8px;
 }
 #newuser{
     border: 1px solid black;
@@ -121,4 +121,10 @@ input{
 }
 #newuser a {
     margin-left: 17.2%;
+}
+#errorDiv{
+    margin-top: 8px;
+}
+#emailDiv{
+    padding-top: 50px;
 }

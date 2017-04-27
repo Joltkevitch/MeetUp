@@ -5,22 +5,27 @@ window.onload=function(){
         document.getElementById("buttonLog").addEventListener("click", login);
         document.getElementById("register").addEventListener("click", register);
         
-         //Asignacion de funciones a los inputs en Evento ONCHANGE
-        document.getElementById("newEmail").addEventListener("change", ValidateEmail);
-        document.getElementById("Name").addEventListener("change", ValidateName);
-        document.getElementById("LastName").addEventListener("change", ValidateLast);
-        document.getElementById("Title").addEventListener("change", ValidateTitle);
-  
-        //Expresiones regulares para validar el email introducido y los nombres
-        var emailTest=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var Names= /^[a-zA-Z\-]+$/;
-        var Title=/^[a-zA-Z\-\s]+$/;
-        
         //Variables para coger los valores de los inputs tipo [TEXT/EMAIL] del formulario
         var email=document.getElementById("newEmail");
         var Username=document.getElementById("Name");
         var Last=document.getElementById("LastName");
         var title=document.getElementById("Title");
+        var password=document.getElementById("newPass");
+        
+         //Asignacion de funciones a los inputs en Evento ONCHANGE
+        email.addEventListener("change", ValidateEmail);
+        Username.addEventListener("change", ValidateName);
+        Last.addEventListener("change", ValidateLast);
+        title.addEventListener("change", ValidateTitle);
+        password.addEventListener("change",ValidatePass);
+  
+        //Expresiones regulares para validar el email introducido y los nombres
+        var emailTest=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var Names= /^[a-zA-Z\-]{3,30}$/;
+        var Title=/^[a-zA-Z\-\s]{3,30}$/;
+        var pass=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,45}$/;
+        
+        
         
         // Funcion para cambiar de formulario
      function register(){
@@ -103,6 +108,23 @@ window.onload=function(){
         else{
            title.style.backgroundColor="#FF8983";
            title.style.borderColor="#9E0900";
+         }
+        }
+    };
+    //Funcion que valida el password del usuario
+    function ValidatePass(){
+         if(password.value===""){
+            password.style.backgroundColor="white";
+            password.style.borderColor="white";
+        }
+        else{
+        if(pass.test(password.value)){
+            password.style.backgroundColor="#9ACC7D";
+            password.style.borderColor="#5F993E";
+        }
+        else{
+           password.style.backgroundColor="#FF8983";
+           password.style.borderColor="#9E0900";
          }
         }
     };
