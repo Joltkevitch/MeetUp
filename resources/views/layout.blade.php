@@ -14,7 +14,6 @@
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/MainPage.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
 </head>
 <body style="overflow:no-display;background-color:#FFFDEA;">
@@ -33,11 +32,9 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
         
         @yield("Contend")
         
-    </div>
                
 
     <!-- BLADE SPECIAL COMMAND FOR NONE REPETITIVE CODE -->

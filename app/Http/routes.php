@@ -15,3 +15,8 @@ Route::get('/', function () {
     return view('Meetings/RegisLog');
 });
 Route::post("congrats","UserController@store");
+
+Route::get("Welcome", function (){
+    return view("Meetings/AfterLog");
+});
+Route::post("Welcome","LogController@store");

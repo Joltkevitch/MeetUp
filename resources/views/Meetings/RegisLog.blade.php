@@ -1,16 +1,18 @@
 @extends("layout")
+    <script src="js/MainPage.js"></script>
 
 @section("Contend")
     <div class="row">
         <div class="col-lg-3">
         </div>
         <div class="col-lg-6" id="login">
-            <form method="post" action="">
+            <form method="post" action="{{url('Welcome')}}">
                 <h2><strong>Log in</strong><span> with</span></h2>
                 <div class="form-group">
                     <h4 for="email"><strong>Your Redeem email address:</strong></h4>
                     <input type="email" class="form-control" id="email" name="Email-Login" placeholder="Name.Lastname@redeemgroup.com" />
                     <input type="password" class="form-control" id="pass" name="Pass-Login" placeholder="Your Password " />
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                 </div>
                 <div class="checkbox">
                     <label><input type="checkbox" id="rememberMe" /><strong>Remember me</strong></label><span style="float:right;" class="label label-warning"><a href="#">Forgot your email?</a></span>
@@ -20,6 +22,7 @@
                     <input type="button" class="btn btn-primary btn-md" id="register" value="New User" />
                 </div>
             </form>
+            @include("Partials/TryAgain")
         </div>
         <div class="col-lg-6" id="registerForm">
             <form action="{{url('congrats')}}" method="post">

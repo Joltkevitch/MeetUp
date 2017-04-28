@@ -1,0 +1,134 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-Apr-2017, 11:42:42
+    Author     : Alejandro.Joltkevich
+*/
+ body
+{
+    overflow-x: hidden;
+}
+.col-lg-10{
+    border:2px solid darkorange;
+    border-radius:8px;
+    background-color:#eea236;
+    height:auto;
+    color:white;
+    width: 100%;
+    font-size: 18px;
+    transition: 0.5s;
+    margin-bottom: 1%;
+}
+#reserve,#FutureMeetings,#PastMeetings {
+    display: inline-block;
+    width:33.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
+}
+@media only screen and (max-width: 1200px) {
+    .col-lg-4 {
+        width:100%;
+        margin: 20px 5px 0px 5px;
+        height: auto;
+        padding-right:5px;
+        padding-left: 5px;
+        transition: 0.2s;
+    }
+    #reserve, #PastMeetings, #FutureMeetings{
+        margin-bottom: 2%;
+        width: 31%;
+        display: inline-block;
+    }
+
+}
+@media only screen and (max-width: 320px) {
+    .col-lg-4 {
+        width:100%;
+        margin: 20px 0px 0px 0px;
+        height: 400px;
+        padding-right:5px;
+        padding-left: 5px;
+        transition: 0.2s;
+    }
+    #reserve, #PastMeetings, #FutureMeetings{
+        position: relative;
+        margin-bottom: 0.5%;
+        width: 100%;
+        transition: 0.2s;
+    }
+    #reserve{
+        margin-top: -20px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .col-lg-4 {
+        width:100%;
+        margin: 20px 0px 0px 0px;
+        height: 375px;
+        padding-right:5px;
+        padding-left: 5px;
+        transition: 0.2s;
+    }
+    #reserve, #PastMeetings, #FutureMeetings{
+        display: block;
+        margin-bottom: 1%;
+        width: 100%;
+        transition: 0.2s;
+    }
+
+}
+@media only screen and (max-width: 412px) {
+    .col-lg-4 {
+        width:100%;
+        margin: 20px 0px 0px 0px;
+        height: 375px;
+        padding-right:5px;
+        padding-left: 5px;
+        transition: 0.2s;
+    }
+    #reserve, #PastMeetings, #FutureMeetings{
+        position: relative;
+        margin-bottom: 1%;
+        width: 100%;
+        margin-left: 0%;
+        transition: 0.2s;
+    }
+}
+    @media only screen and (max-width: 740px) {
+    .col-lg-4 {
+        width:100%;
+        margin: 20px 0px 0px -0px;
+        height: auto;
+        padding-right:5px;
+        padding-left: 5px;
+        transition: 0.2s;
+    }
+    #reserve, #PastMeetings, #FutureMeetings{
+        position: relative;
+        margin-bottom: 1%;
+        width: 100%;
+        margin-left: 0%;
+        transition: 0.2s;
+    }
+}
+    @media only screen and  (min-width: 1200px) {
+    #problematico {
+        left: 8.33%
+    }
+}
+.table{
+    position: relative;
+}
+.table tbody td:hover {
+    background-color: palegoldenrod;
+}
+#table tbody tr:hover {
+    background-color: #d58512;
+}
+
+.table tbody td, .table tbody tr{
+    transition: 0.5s;
+}
