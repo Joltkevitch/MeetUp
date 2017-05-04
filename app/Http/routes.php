@@ -11,12 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Meetings/RegisLog');
-});
+//Ruta para ver formulario de log In
+Route::get('/',[
+    'uses' => 'LogController@showLog',
+    'as' => 'Login'
+] );
+
+//Ruta para ver vista indicando que el usuario ha sido creado correctamente 
 Route::post("congrats","UserController@store");
 
 Route::get("Welcome", function (){
     return view("Meetings/AfterLog");
 });
-Route::post("Welcome","LogController@store");
+
+//Ruta que se usa para autentificar al usuario
+Route::post("Welcome","LogController@logIn")->after("auth");// Luego de autentificar
+
+//Ruta para volver al formulario e log in, cuando se desloguea un usuario
+Route::get('Logout',"LogController@logOut");
+
+Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+    return "this page requires that you be logged in and an Admin";
+}]);
+
+Route::get("Rooms",[
+    'middelware'=> 'auth',
+    'uses' => "RoomController@showRooms"]);

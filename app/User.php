@@ -10,31 +10,25 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+//Modelo con el que se manejan los datos de la tabla USERS
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
                                     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
+   //INDICAMOS LA TABLA 
     protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $primaryKey="USER_ID";//Declaramos la clave primaria 
+    
+    //Datos que pueden ser rellenados desde un formario
     protected $fillable = ['FIRST_NAME','LAST_NAME','TITLE','LOCATION_ID', 'EMAIL', 'PASSWORD','IS_ACTIVE'];
-    public $timestamps = false;
+   
+    public $timestamps = false;//indicamos que no tenemos campos create_at y update_at
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    //protected $hidden = ['password', 'remember_token'];
+   //Campos portegidos
+    protected $hidden = ['password', 'remember_token'];
+   
+
 }

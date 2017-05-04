@@ -6,114 +6,55 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-use Auth;
+use Illuminate\Contracts\Auth\Authenticatable;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class LogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    //metodo para mostrar el formulario de logueado
+    public function showLog(){
+        return view("Meetings/RegisLog");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //Autentificar usuario de la base de datos 
+    public function login(LoginRequest $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(LoginRequest $request)
-    {
-       /* $usersExists=User::where('EMAIL','=',$request["Email-Login"],"AND",'PASSWORD','=',$request["Pass-Login"])->get();
-        //$pass=User::where('PASSWORD','=',$request["Pass-Login"])->get();
-        
-        print_r("<pre>");
-        print_r($usersExists);
-        print_r("</pre>");
-        die("oops");        
-        
-      /*  $user2=User::get("EMAIL");
-        dd($users);
-        
-        if($usersExists){
-            
-        } else {
-            
-        }*/
-        if(Auth::attempt(["email"=> $request["Email-Login"], "password" => $request["Pass-Login"]])){
-       /* if($users==true && $pass==true){  */
-             print_r("<pre>");
-        print_r("AUTH FUNCTION");
-        print_r("</pre>");
-        die("oops");        
-       
-        return Redirect::to('Welcome');
+        if(!empty($request["remember"])){
+        $remember=true;
+        }  
+        else{
+        $remember=false;
         }
-        die("SOMETHING");
+        $this->validate($request,[
+            'EMAIL' => 'required|email', 'PASSWORD' => 'required'  //Validaciones, reglas 
+        ]);
+        
+       $email= $request["EMAIL"];//Email dado
+       $pass=($request["PASSWORD"]);// Password dado
+       
+       $user=User::where('EMAIL','like',$email)->where('IS_ACTIVE','=','1')->first();// Query para buscar en la base de datos 
+       if($user){
+           $DBpass=$user->PASSWORD;// Seleccionamos el password de la base de datos, que estara encriptado por motivos de seguridad
+           
+         if(\Hash::check($pass,$DBpass )){//Comprobar Passwords
+             
+         Auth::login($user,$remember);// Logear al usuario introducido
+         
+         $Info= Auth::user();
+        return View("Meetings/AfterLog")->with("info",$Info);//Siguiente pagina, le pasamos la informacion del usuario logueado
+        }
+       }
         Session::flash("message-error","the e-mail introduced or the password is not correct. Try again.");
         return Redirect::to("/");
     }
     
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    //Metodo para desloguear a un usuario
+    public function logOut(){
+        Auth::logout();
+        Session::flush();
+       return Redirect::to('/');// Redirigimos a el formulario una vez deslogueado el usuario
     }
 }

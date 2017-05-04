@@ -93,21 +93,40 @@ input{
     transition: 0.4s;
 }
 
-#buttonLog{
+#buttonLog,#profile,#logout{
     transition: 0.4s;
 }
-#buttonLog:hover{
+#buttonLog:hover,#profile:hover,#logout:hover{
     background-color: #286090;
     border-color: #204d74;
+}
+#profile{
+    width: 100%;
 }
 #log {
     display: none;
     height: 95%;
 }
+#RightBar{
+ height: 95%;
+ right: -20px;
+}
+#RightBar li{
+ margin-right: 5px;
+ width: 100%;
+ transition: 0.5s;
+  background-color: #286090;
+  color:black;
+}
+#RightBar li a:hover{
+ background-color: #286090;
+border-color: #204d74;
+}
+
 #registerForm{
     display: none;
 }
-#log li a {
+#log li a, #RightBar li a{
     height: 50px;
 }
 #pass,#newPass{

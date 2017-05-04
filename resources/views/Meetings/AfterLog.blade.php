@@ -1,8 +1,8 @@
 @extends('layout')
-<link type ="text/css" href="css/mineStyle2.css" rel="stylesheet" />
+<link type ="text/css" href="css/Logged.css" rel="stylesheet" />
 
 @section('Contend')
-
+    
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-10" id="urls">
@@ -11,7 +11,7 @@
               <p>Make a meeting reservation! choosing time, day and the people attendig to the meeting, it'll be quick.</p>
               </div>  
               <br />
-                <a href="#" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
+                <a href="Rooms" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
                 <a href="#" class="btn btn-primary btn-lg" id="FutureMeetings" ><strong>Watch future meetings</strong></a>
                 <a href="#" class="btn btn-primary btn-lg" id="PastMeetings" ><strong>Watch past meetings</strong></a>
             </div>

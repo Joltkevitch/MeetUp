@@ -10,12 +10,12 @@
                 <h2><strong>Log in</strong><span> with</span></h2>
                 <div class="form-group">
                     <h4 for="email"><strong>Your Redeem email address:</strong></h4>
-                    <input type="email" class="form-control" id="email" name="Email-Login" placeholder="Name.Lastname@redeemgroup.com" />
-                    <input type="password" class="form-control" id="pass" name="Pass-Login" placeholder="Your Password " />
+                    <input type="email" class="form-control" id="email" name="EMAIL" placeholder="Name.Lastname@redeemgroup.com" value="{{ old('Email-Login') }}"/>
+                    <input type="password" class="form-control" id="pass" name="PASSWORD" placeholder="Your Password " />
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                 </div>
                 <div class="checkbox">
-                    <label><input type="checkbox" id="rememberMe" /><strong>Remember me</strong></label><span style="float:right;" class="label label-warning"><a href="#">Forgot your email?</a></span>
+                    <label><input type="checkbox" id="rememberMe" value="true" name='remember' /><strong>Remember me</strong></label><span style="float:right;" class="label label-warning"><a href="#">Forgot your password?</a></span>
                 </div>
                 <div>
                     <input type="submit" class="btn btn-warning btn-md" id="submit" value="Submit" />
@@ -43,14 +43,14 @@
                     </div>
                     <select multiple class="form-control" id="locations" name="location" required>
                         <option value="1" selected>Bathgate</option>
-                        <option value="4">Burton-on-Tre</option>
-                        <option value="6">Dubai</option>
-                        <option value="8">Hong Kong</option>
-                        <option value="3">Macclesfield</option>
-                        <option value="2">Madrid</option>
-                        <option value="7">Norrtalj</option>
-                        <option value="5">Tartu</option>
-                        <option value="9">Toronto</option>
+                        <option value="4" disabled>Burton-on-Tre</option>
+                        <option value="6" disabled>Dubai</option>
+                        <option value="8" disabled>Hong Kong</option>
+                        <option value="3" disabled>Macclesfield</option>
+                        <option value="2" disabled>Madrid</option>
+                        <option value="7" disabled>Norrtalj</option>
+                        <option value="5" disabled>Tartu</option>
+                        <option value="9" disabled>Toronto</option>
                         
                     </select>
                 </div>
