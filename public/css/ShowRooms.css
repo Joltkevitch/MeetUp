@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Alejandro.Joltkevich
 */
 @import url('https://fonts.googleapis.com/css?family=Baloo');
+@import url('https://fonts.googleapis.com/css?family=Amiri');
 body{
     overflow-x: hidden;
 }
@@ -16,6 +17,8 @@ body{
     text-align: center;
     text-orientation: sideways;
     font-family: 'Baloo', cursive;
+    transition: 0.5s;
+    margin-bottom: 50px;
     transition: 0.5s;
 }
 #select-column:hover{
@@ -44,24 +47,22 @@ color:#269abc;
         #profileName{
             right: -20px;
         }
-        #SelectRoom{
-           display: none;
-        }
         .Data{
             font-size: 16px;
             text-align: center;
             font-weight: 600;
-            position: fixed;
-            left: 59%;
+            position:  absolute;
+            left: 56.5%;
             width: 300px;
             color:#0097A7 ;
-            top:16.6%;
+            top:-35px;
             display: inline-block;
             border-bottom: 35px solid #FFCA28  ;
             border-left: 35px solid transparent;
             border-right: 35px solid transparent;
             height: 30px;
-            z-index: 1;
+            z-index: -1;
+            transition: 0.5s;
         }
         .Data > span{
             position: relative;
@@ -69,16 +70,75 @@ color:#269abc;
         }
         .Data:nth-child(1){
             left: 75.5%;
-            z-index: 2; 
         }
         #RoomList{
-            background-color: #FFA000;
+            display: none;
+             background: radial-gradient(circle, #FFFFCC,#F8DE4B, #EBA218);
+            padding-left: 11%;
+            padding-top: 0.5%;
+            padding-bottom:  0.5%;
+            border-radius: 8px;
+            z-index: 1;
+            height: fit-content;
         }
         dates{
             height: 50px;
         }
-        
-@media only screen and (max-width: 1200px) {
+        .roomdesc{
+            opacity: 0;
+             background-color: #1A99B8;
+             display: inline-block;
+             height: 240px;
+             width: 24%;
+             border: 1.5px solid #9F3701;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 8px;
+            font-family: 'Amiri', serif;
+            font-size: 22px;
+            transition: 0.5s;
+            float: left;
+            margin-bottom: 2%;
+            transition: 0.5s;
+        }
+        .roomdesc:hover{
+            background-color: #33CCFF;
+        }
+        .roomdesc:nth-child(odd){
+            margin-right: 35%;
+        }
+       .shadow{
+       box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+       position:relative;
+       transition: 0.5s;
+        }
+        .shadow:before, .shadow:after{
+        position:absolute;
+        content:"";
+        top:14px;bottom:14px;left:0;right:0;
+        box-shadow:0 0 35px 3px black;
+        border-radius:100px/10px;
+        z-index:-1;
+        transition: 0.5s;
+    }
+        #Next{
+        position: absolute;
+        right: 48%;
+        top:40%;
+        border-radius: 100px;
+        background:#006699;
+        padding: 20px;
+        width: 100px;
+        font-weight: 600;
+        height: 100px;
+        border:1px solid #2e6da4;
+         transition: 0.5s;
+         color:white;
+    }
+    #Next:hover{
+        background:#00B8EB;
+    }
+@media only screen and (max-width: 1200px) and (min-width: 1000px) {
     #message{
         left:0%;
         top:0px;
@@ -90,6 +150,26 @@ color:#269abc;
         #profileName{
             right: -20px;
         }
+        .Data{
+            left: 49%;
+        }
+        .Data:nth-child(1){
+            left:100%;
+        }
+        #RoomList{
+            padding-left: 2%;
+            height: 50%;
+        }
+        .roomdesc{
+            margin-left: 0.5%;
+            margin-right: 0.5%;
+        }
+         .roomdesc:nth-child(odd){
+            margin-right: 0%;
+        }
+        #Next{
+              right: 46.1%;
+          }
     }
 @media only screen and (max-width: 320px) {
         #profileName{
@@ -109,15 +189,33 @@ color:#269abc;
 
 }
 @media only screen and (max-width: 412px) {
-            #profileName{
+        #profileName{
             right: 0px;
         }
         #RightBar{
             width: 20%;
         }
 }
-    @media only screen and (max-width: 764px) {
+    @media only screen and (max-width: 1000px) {
            #profileName{
-            right: 0px;
+            right: -20px;
         }
+        .Data{
+            left: 10%;
+        }
+        .Data:nth-child(1){
+            left:90%;
+        }
+}
+    @media only screen and (max-width:1450px) and (min-width: 1199px) {
+        .Data{
+            left: 39%;
+        }
+        .Data:nth-child(1){
+            left:65%;
+        }
+          #Next{
+              right: 47%;
+             
+          }
 }

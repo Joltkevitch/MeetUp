@@ -13,11 +13,12 @@ use App\Room;
 class RoomController extends Controller
 {
    public function showRooms(){
-        $Rooms=DB::table("rooms")
-                ->join("LOCATIONS","LOCATION_ID","=","LOCATIONS.LOCATION_CODE")->get();
+        $rooms=DB::table("rooms")
+                ->where("ROOMS.LOCATION_ID","=",Auth::user()->LOCATION_ID)->get();
+               // ->join("LOCATIONS","LOCATION_ID","=","LOCATIONS.LOCATION_CODE")->get();
         
         $Loc=DB::table("Locations")->where("LOCATION_CODE","like",Auth::user()->LOCATION_ID)->pluck("LOCATION_NAME");
-       return view("Meetings/Rooms")->with("Location",$Loc)->with("rooms",$Rooms);
+       return view("Meetings/Rooms")->with("Location",$Loc)->with("rooms",$rooms);
    }
 
 }
