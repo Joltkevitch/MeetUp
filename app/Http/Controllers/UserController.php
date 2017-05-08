@@ -27,7 +27,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
        // $newUser= request()->all();
-       //
+       //Similar a $variable= $_POST["nombreInput"]
         $name= request()->get("Fname");
         $Lname= request()->get("Lname");
         $title= request()->get("Tit");

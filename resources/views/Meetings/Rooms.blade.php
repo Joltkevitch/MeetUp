@@ -4,7 +4,7 @@
 
 @section("Contend")
 @if(Auth::check())
-        <form >
+<form action="{{url('When')}}" method="post">
 <div class="row">
         
         <div class="col-lg-1"></div>
@@ -14,8 +14,13 @@
             </div>
          <h1>Select a room</h1>
          </div>
-        <div class="col-lg-7"></div>
-        <div class="col-lg-1"></div>
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-3">
+                        @include("Partials/errors")
+        </div>
+        <div class="col-lg-1">
+        </div>
 </div>
 <div class="row">
         <div class="col-lg-1"></div>
@@ -38,13 +43,16 @@
             </div>
              @foreach ($rooms as $room)
             <div class="roomdesc shadow" >
+                <div class="contend-room">
                 <input type='hidden' value='{{ $room->ROOM_ID }}' disabled id='roomId'>
-                <h3>Room Name: <span>{{ $room->NAME }}</span></h3>
-                <h4>Room Title: <span>{{ $room->TITLE }}</span></h4>
-                <h4>Gadgets: <span>{{ $room->GADGETS }}</span></h4>
+                <h4>Room Name: <span class="info">{{ $room->NAME }}</span></h4>
+                <h4>Room Title: <span class="info">{{ $room->TITLE }}</span></h4>
+                <h4>Gadgets: <span class="info">{{ $room->GADGETS }}</span></h4>
+                 </div>
             </div>
              @endforeach
-             <input type='hidden' value='algo' name='Picked' id='Pick' required>
+             <input type="hidden" name="_token" value="{{csrf_token()}}">
+             <input type='hidden' value='' name='room' id='Pick' required>
              <input type="submit" value='Continue' id='Next'>
         </div>
         <div class="col-lg-1">

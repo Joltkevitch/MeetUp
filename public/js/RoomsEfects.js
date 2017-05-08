@@ -6,11 +6,14 @@
 window.onload=function(){
     
    //Declaracion de variables 
-    document.getElementsByTagName("body")[0].addEventListener("mouseover",IN);
+     document.getElementsByTagName("body")[0].addEventListener("mouseover",IN);
+     document.getElementById("select-column").addEventListener("click",show);
+     document.getElementsByTagName("body")[0].addEventListener("keydown",IN);
      var message=$("#message");//Mensaje
      var Wscreen = window.document.body.clientWidth;//Ancho de body
      var RoomList=$("#RoomList");//Div contenedor de las habitaciones 
      var rooms=document.getElementsByClassName("roomdesc");//Habitaciones
+     var timer;
      
      for(x=0 ; x<document.getElementsByClassName("roomdesc").length; x++){// Evento onclick a los divs con los datos de las habitaciones 
          document.getElementsByClassName("roomdesc")[x].addEventListener("click",clickRoom);
@@ -28,11 +31,14 @@ window.onload=function(){
     }
     
     function OUT(){
+        document.getElementsByTagName("body")[0].removeEventListener("mouseover",IN);
+         document.getElementsByTagName("body")[0].removeEventListener("keydown",IN);
         message.animate({left:"0%",top:"0px",opacity:"0",zIndex:"0"},800,function(){
         document.getElementsByClassName("Data")[0].style.zIndex = "1";
         document.getElementsByClassName("Data")[1].style.zIndex = "1";
         document.getElementById("RoomList").style.zIndex="1";
-        clearInterval();
+         clearInterval(timer);
+
         });//1500
     }
     function IN(){
@@ -40,7 +46,7 @@ window.onload=function(){
         slide();    
         message.animate({left:"120%",top:"4px",opacity:"1.0"},2000);//2000
         document.getElementsByTagName("body")[0].removeEventListener("mouseover",IN);
-        setInterval(OUT, 6000);
+        timer = setInterval(OUT, 7500);
         
         }
         if(Wscreen<1199){
@@ -48,14 +54,18 @@ window.onload=function(){
         message.animate({left:"0%",top:"100%",opacity:"1.0",width:"100%",height:"auto"},2000);//2000
         document.getElementsByTagName("body")[0].removeEventListener("mouseover",IN);
         document.getElementById("RoomList").style.zIndex="0";
-        setInterval(OUT, 6000);//000
+        timer =  setInterval(OUT, 7500);//000
         }
+    }
+    function show(){
+          message.animate({left:"120%",top:"4px",opacity:"1.0"},2000);//2000
+           timer =  setInterval(OUT, 7500);//000
     }
     
     //Funcion que se activa al hacer click en la descripcion de una habitacion
       function clickRoom(){
           function colors(){
-              //COmprobamos el color del div y lo sustituimos para marcar al div clickeado correspondiente 
+              //Comprobamos el color del div y lo sustituimos para marcar al div clickeado correspondiente 
              for(i=0; i<rooms.length; i++){
                  if(rooms[i].style.backgroundColor==="rgb(51, 204, 255)"){
                      rooms[i].style.backgroundColor="#1A99B8";

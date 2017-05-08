@@ -14,8 +14,6 @@ body{
 }
 
 #select-column{
-    text-align: center;
-    text-orientation: sideways;
     font-family: 'Baloo', cursive;
     transition: 0.5s;
     margin-bottom: 50px;
@@ -25,13 +23,17 @@ body{
 color:#269abc;
 }
 #select-column h1{
- text-decoration: underline;
+    text-align: center;
+    text-orientation: sideways;
+    text-decoration: underline;
 }
 #message{
+    text-align: center;
+    text-orientation: sideways;
+    font-family: 'Baloo', cursive;
+    text-orientation: sideways;
     position: absolute;
     margin: 0px;
-    left:200%;
-    top:4px;
     width: 80%;
     background-color: #269ABC;
     color:black;
@@ -44,9 +46,6 @@ color:#269abc;
     padding-right: 2px;
     z-index:1;
 }
-        #profileName{
-            right: -20px;
-        }
         .Data{
             font-size: 16px;
             text-align: center;
@@ -138,6 +137,35 @@ color:#269abc;
     #Next:hover{
         background:#00B8EB;
     }
+    .contend-room{
+            border: 1.5px dashed white;
+    margin: 5%;
+    padding: 2%;
+    height: 90%;
+    width: 90%;
+    }
+    .contend-room h4{
+     font-size: 18px;
+    font-weight: 600;
+    color: goldenrod;
+    }
+    .contend-room .info{
+        color:black;
+    }
+    .gray-span{
+        background-color: #B0BEC5;
+        border-radius: 8px;
+        color:black;
+    }
+    #back{
+        font-weight: 600;
+        position:relative;
+        top:32px;
+    }
+    #table-body tr{
+        height: 40px;
+        background-color: white;
+    }
 @media only screen and (max-width: 1200px) and (min-width: 1000px) {
     #message{
         left:0%;
@@ -154,7 +182,7 @@ color:#269abc;
             left: 49%;
         }
         .Data:nth-child(1){
-            left:100%;
+            left:74%;
         }
         #RoomList{
             padding-left: 2%;

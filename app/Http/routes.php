@@ -34,6 +34,12 @@ Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
     return "this page requires that you be logged in and an Admin";
 }]);
 
+//Ruta para escojer una habitacion
 Route::get("Rooms",[
-    'middelware'=> 'auth',
+    'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
     'uses' => "RoomController@showRooms"]);
+//Continuacion de la reserva de una habitacion
+Route::post("When",[
+    'middelware' => 'auth',
+    'uses' => 'RoomController@reserveRoom'
+]);
