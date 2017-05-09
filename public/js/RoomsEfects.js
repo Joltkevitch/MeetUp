@@ -6,7 +6,7 @@
 window.onload=function(){
     
    //Declaracion de variables 
-     document.getElementsByTagName("body")[0].addEventListener("mouseover",IN);
+     //document.getElementsByTagName("body")[0].addEventListener("mouseover",IN);
      document.getElementById("select-column").addEventListener("click",show);
      document.getElementsByTagName("body")[0].addEventListener("keydown",IN);
      var message=$("#message");//Mensaje
@@ -19,7 +19,7 @@ window.onload=function(){
          document.getElementsByClassName("roomdesc")[x].addEventListener("click",clickRoom);
      }
     
-    
+    IN();
     //ANIMACIONES
     function slide(){
            RoomList.slideDown(1500,"swing");
@@ -31,8 +31,6 @@ window.onload=function(){
     }
     
     function OUT(){
-        document.getElementsByTagName("body")[0].removeEventListener("mouseover",IN);
-         document.getElementsByTagName("body")[0].removeEventListener("keydown",IN);
         message.animate({left:"0%",top:"0px",opacity:"0",zIndex:"0"},800,function(){
         document.getElementsByClassName("Data")[0].style.zIndex = "1";
         document.getElementsByClassName("Data")[1].style.zIndex = "1";
@@ -45,14 +43,12 @@ window.onload=function(){
         if(Wscreen>1199){
         slide();    
         message.animate({left:"120%",top:"4px",opacity:"1.0"},2000);//2000
-        document.getElementsByTagName("body")[0].removeEventListener("mouseover",IN);
         timer = setInterval(OUT, 7500);
         
         }
         if(Wscreen<1199){
         slide();   
         message.animate({left:"0%",top:"100%",opacity:"1.0",width:"100%",height:"auto"},2000);//2000
-        document.getElementsByTagName("body")[0].removeEventListener("mouseover",IN);
         document.getElementById("RoomList").style.zIndex="0";
         timer =  setInterval(OUT, 7500);//000
         }

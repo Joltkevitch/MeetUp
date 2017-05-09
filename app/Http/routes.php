@@ -20,9 +20,9 @@ Route::get('/',[
 //Ruta para ver vista indicando que el usuario ha sido creado correctamente 
 Route::post("congrats","UserController@store");
 
-Route::get("Welcome", function (){
+/*Route::get("Welcome", function (){
     return view("Meetings/AfterLog");
-});
+});*/
 
 //Ruta que se usa para autentificar al usuario
 Route::post("Welcome","LogController@logIn")->after("auth");// Luego de autentificar

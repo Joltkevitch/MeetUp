@@ -22,7 +22,7 @@ class RoomController extends Controller
 
    public function reserveRoom(Request $request){
        
-       $yesterday=date("F j, Y", time() - 60 * 60 * 24);
+     $yesterday=date("F j, Y", time() - 60 * 60 * 24);
        $this->validate(request(),[
             "WishDate" => ["required","date","date_format:Y-m-d","after:yesterday"],
             "room" => ["required"]
@@ -31,9 +31,14 @@ class RoomController extends Controller
        $room=$request->get('room');//habitacion escogida por el usuario
        
        $meets=DB::table("meetings")
-               ->select("MEETING_DATE","TIME_FROM","TIME_TO")
+               ->select(DB::raw("TIME_FORMAT(TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(TIME_TO,'%H:%i') as TIME_TO"))
                ->where("ROOM_CODE","=",$room)
                ->where("MEETING_DATE","like",$date)->get();
+       
+         /* $meets=DB::select(DB::raw("SELECT MEETING_DATE ,TIME_FORMAT('TIME_FROM','%H:%i'),TIME_FORMAT(TIME_TO,'%H:%i') FROM MEETINGS WHERE ROOM_CODE = :room AND MEETING_DATE like :date"),
+                       array('room'=>$room,
+                           'date'=>$date
+                       ));*/
        
       return view("Meetings/Time&End")->with("date",$date)->with("room",$room)->with("meetings",$meets);
    }
