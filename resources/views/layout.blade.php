@@ -29,7 +29,6 @@
             </ul>
             <ul class="nav navbar-nav navbar-right RightBar" id="log">
                 <li><a id="buttonLog"  class="btn btn-primary btn-xs navButton "><span class="glyphicon glyphicon-user"></span>Log In</a></li>
-
             </ul>
             <ul class="nav navbar-nav navbar-right " id="RightBar">
                 @if(Auth::check())

@@ -10,7 +10,9 @@
         @endforeach
         </script>
 <script src='js/hourSelector.js' type='text/javascript'></script>
+<div id="gray-window"></div>
 @section("Contend")
+
 <form>
 <div class="row">
     <div class="col-lg-2"></div>
@@ -21,10 +23,10 @@
         <a href="{{url('Rooms')}}" class='btn btn-warning btn-md' id='back'><span class='glyphicon glyphicon-circle-arrow-left'> </span>  Choose another room or date</a>
     </div>
      <div class="col-lg-2">
-        <div id="message" style="opacity: 1; ">
+        <div id="message" style="opacity: 1; z-index: 0;">
             Now you most pick an hour to celebrate your meeting.<br>
 
-        <span class="gray-span">gray = not available</span>
+        <span class="gray-span">Colored rows are already taken</span>
         </div>
     </div>
      <div class="col-lg-2">
@@ -43,26 +45,26 @@
                     <th id='today' >Today's Date</th>
                 </tr>
             <tbody id="table-body">
-                <tr>                    <td><span class="hour">09:00</span></td>                </tr>           
-                <tr>                    <td ><span class="hour hidden">09:30</span></td>                </tr>      
-                <tr>                    <td ><span class="hour">10:00</span></td>                </tr>          
-                <tr>                    <td ><span class="hour hidden">10:30</span></td>                </tr>         
-                <tr>                    <td ><span class="hour">11:00</span></td>                </tr>          
-                <tr>                    <td ><span class="hour hidden">11:30</span></td>                </tr>
-                <tr>                    <td ><span class="hour">12:00</span></td>                </tr>       
-                <tr>                    <td ><span class="hour hidden">12:30</span></td>                </tr>             
-                <tr>                    <td><span class="hour">13:00</span></td>                </tr>  
-                <tr>                    <td ><span class="hour hidden">13:30</span></td>                </tr>              
-                <tr>                    <td ><span class="hour">14:00</span></td>                </tr>         
-                <tr>                    <td ><span class="hour hidden">14:30</span></td>                </tr>          
-                <tr>                    <td ><span class="hour">15:00</span></td>                </tr>           
-                <tr>                    <td ><span class="hour hidden">15:30</span></td>                </tr>              
-                <tr>                    <td ><span class="hour">16:00</span></td>                </tr>
-                <tr>                    <td ><span class="hour hidden">16:30</span></td>                </tr>               
-                <tr>                    <td ><span class="hour">17:00</span></td>                </tr>   
-                <tr>                    <td ><span class="hour hidden">17:30</span></td>                </tr>
-                <tr>                    <td ><span class="hour">18:00</span></td>                </tr>          
-                <tr>                    <td ><span class="hour hidden">18:30</span></td>                </tr>
+                <tr>                    <td><span class="hour">09:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>           
+                <tr>                    <td ><span class="hour hidden">09:30</span><button  type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>      
+                <tr>                    <td ><span class="hour">10:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>          
+                <tr>                    <td ><span class="hour hidden">10:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>         
+                <tr>                    <td ><span class="hour">11:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>          
+                <tr>                    <td ><span class="hour hidden">11:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>
+                <tr>                    <td ><span class="hour">12:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>       
+                <tr>                    <td ><span class="hour hidden">12:30</span><button  type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>             
+                <tr>                    <td><span class="hour">13:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>  
+                <tr>                    <td ><span class="hour hidden">13:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button>"</td>                </tr>              
+                <tr>                    <td ><span class="hour">14:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>         
+                <tr>                    <td ><span class="hour hidden">14:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>          
+                <tr>                    <td ><span class="hour">15:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>           
+                <tr>                    <td ><span class="hour hidden">15:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>              
+                <tr>                    <td ><span class="hour">16:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>
+                <tr>                    <td ><span class="hour hidden">16:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>               
+                <tr>                    <td ><span class="hour">17:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>   
+                <tr>                    <td ><span class="hour hidden">17:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>
+                <tr>                    <td ><span class="hour">18:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>          
+                <tr>                    <td ><span class="hour hidden">18:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>
 
             </tbody>
         </table>
@@ -70,6 +72,14 @@
     <div class="col-lg-1"></div>
     
 </div>
+    <div class="form-group" id="ReservationEnd">
+        @foreach ($roomName as $room )
+        <p><span class=''>Location: {{$room->LOCATION_NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->LOCATION_NAME}}' required disabled/>
+        <p><span>Room's name: {{$room->NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->NAME}}' required disabled/>
+        @endforeach
+        <p><span>Chosen Date: {{$date}}</span></p>  <input class="form-control" type='hidden' value='{{$date}}' required disabled/>
+        <p><span>Meeting starts at: </span><span id='hour'></span></p>
+    </div>
 </form>
 
 

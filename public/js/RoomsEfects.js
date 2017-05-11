@@ -6,7 +6,6 @@
 window.onload=function(){
     
    //Declaracion de variables 
-     //document.getElementsByTagName("body")[0].addEventListener("mouseover",IN);
      document.getElementById("select-column").addEventListener("click",show);
      document.getElementsByTagName("body")[0].addEventListener("keydown",IN);
      var message=$("#message");//Mensaje
@@ -14,6 +13,10 @@ window.onload=function(){
      var RoomList=$("#RoomList");//Div contenedor de las habitaciones 
      var rooms=document.getElementsByClassName("roomdesc");//Habitaciones
      var timer;
+     var date=new Date();
+     var month=date.getMonth()+1;
+    document.getElementById("dates").value=date.getFullYear()+"-0"+month+"-"+date.getDate();// Por defecto ponemos la fecha de hoy en el input type=date
+    
      
      for(x=0 ; x<document.getElementsByClassName("roomdesc").length; x++){// Evento onclick a los divs con los datos de las habitaciones 
          document.getElementsByClassName("roomdesc")[x].addEventListener("click",clickRoom);
@@ -53,9 +56,17 @@ window.onload=function(){
         timer =  setInterval(OUT, 7500);//000
         }
     }
+    // Al hacer click en el "Select a room" se podra desplegar el div que contiene las indicaciones.
     function show(){
-          message.animate({left:"120%",top:"4px",opacity:"1.0"},2000);//2000
+         Wscreen = window.document.body.clientWidth;
+         if(Wscreen<1199){
+          message.animate({left:"0%",top:"100%",opacity:"1.0",width:"100%",height:"auto",zIndex:"2"},2000);//2000
            timer =  setInterval(OUT, 7500);//000
+       }
+        if(Wscreen>1199){
+            message.animate({left:"120%",top:"4px",opacity:"1.0",zIndex:"2"},2000);//2000
+           timer =  setInterval(OUT, 7500);//000
+        }
     }
     
     //Funcion que se activa al hacer click en la descripcion de una habitacion

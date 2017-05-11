@@ -29,17 +29,20 @@ class RoomController extends Controller
        ]);
        $date=$request->get('WishDate');//fecha escogida por el usuario
        $room=$request->get('room');//habitacion escogida por el usuario
+       $today=date("Y/m/d");
+       
+       $rName=DB::table("ROOMS")
+               ->join("LOCATIONS","LOCATION_ID","like","LOCATIONS.LOCATION_CODE")
+               ->select("NAME","LOCATIONS.LOCATION_NAME")
+               ->where("ROOM_ID","like",$room)->get();
+       
        
        $meets=DB::table("meetings")
-               ->select(DB::raw("TIME_FORMAT(TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(TIME_TO,'%H:%i') as TIME_TO"))
+               ->join("ROOMS","ROOM_CODE","like","ROOMS.ROOM_ID")
+               ->select("ROOMS.NAME",DB::raw("TIME_FORMAT(MEETINGS.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(MEETINGS.TIME_TO,'%H:%i') as TIME_TO"))
                ->where("ROOM_CODE","=",$room)
                ->where("MEETING_DATE","like",$date)->get();
        
-         /* $meets=DB::select(DB::raw("SELECT MEETING_DATE ,TIME_FORMAT('TIME_FROM','%H:%i'),TIME_FORMAT(TIME_TO,'%H:%i') FROM MEETINGS WHERE ROOM_CODE = :room AND MEETING_DATE like :date"),
-                       array('room'=>$room,
-                           'date'=>$date
-                       ));*/
-       
-      return view("Meetings/Time&End")->with("date",$date)->with("room",$room)->with("meetings",$meets);
+      return view("Meetings/Time&End")->with("date",$date)->with("room",$room)->with("meetings",$meets)->with("roomName",$rName);
    }
 }
