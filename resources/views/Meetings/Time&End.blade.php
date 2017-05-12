@@ -54,7 +54,7 @@
                 <tr>                    <td ><span class="hour">12:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>       
                 <tr>                    <td ><span class="hour hidden">12:30</span><button  type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>             
                 <tr>                    <td><span class="hour">13:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>  
-                <tr>                    <td ><span class="hour hidden">13:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button>"</td>                </tr>              
+                <tr>                    <td ><span class="hour hidden">13:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>              
                 <tr>                    <td ><span class="hour">14:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>         
                 <tr>                    <td ><span class="hour hidden">14:30</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>          
                 <tr>                    <td ><span class="hour">15:00</span><button type="button" class='add'><span class='glyphicon glyphicon-plus'> </span>add</button></td>                </tr>           
@@ -74,11 +74,29 @@
 </div>
     <div class="form-group" id="ReservationEnd">
         @foreach ($roomName as $room )
-        <p><span class=''>Location: {{$room->LOCATION_NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->LOCATION_NAME}}' required disabled/>
-        <p><span>Room's name: {{$room->NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->NAME}}' required disabled/>
+        <p><span class=''>Location: {{$room->LOCATION_NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->LOCATION_CODE}}' name="F_LOCATION" required disabled/>
+        <p><span>Room's name: {{$room->NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->ROOM_ID}}' name="F_ROOM" required disabled/>
         @endforeach
-        <p><span>Chosen Date: {{$date}}</span></p>  <input class="form-control" type='hidden' value='{{$date}}' required disabled/>
-        <p><span>Meeting starts at: </span><span id='hour'></span></p>
+        <p><span>Chosen Date: {{$date}}</span></p>  <input class="form-control" type='hidden' value='{{$date}}' name="F_DATE" required disabled/>
+        <p><span>Meeting starts at: </span><span id='hour'></span></p><input class="form-control" type='hidden' value='' name="StartsAt" id="SA" required disabled/>
+                <span>Meeting ends at:</span>
+        <select class="form-control" id="future-hours">
+        </select>
+        <div class="mult">
+            <input type="text" class="form-control" placeholder="Looking for" id="finder">
+            <p> <span>Users:</span> </p>
+        <select class="form-control" id="users" multiple>
+            @foreach($users as $user)
+            <option value="{{$user->USER_ID}}">{{$user->FIRST_NAME}} {{$user->LAST_NAME}}</option>
+            @endforeach
+        </select>
+            </div>
+            <div class="mult">
+                <p><span>Attending:</span></p>
+        <select class="form-control" id="attending" multiple name="Attending">
+        </select>
+        </div>
+                <textarea></textarea>
     </div>
 </form>
 

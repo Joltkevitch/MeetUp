@@ -192,12 +192,15 @@ color:#269abc;
         color:rgba(0,51,51,0.75);
         text-decoration: none;
         float: right;
+        background-color: rgba(0,0,0,0);
         display: none;
+        border: none;
     }
     .add:hover{
         opacity: 1;
         color:rgb(0,100,100);
         text-decoration: none;
+        margin: 0;
     }
     .hour{
         color:black;
@@ -205,17 +208,38 @@ color:#269abc;
         height: 100%;
         border-right: 2px solid rgba(5,5,5,0.5);
         width:4%;
+        padding-right: 45px;
     }
     #ReservationEnd{
         width: 45%;
         position: absolute;
         z-index: 3;
-        left:25%;
+        left:27.5%;
         top:35%;
         background-color: rgb(0,75,75);
         padding: 20px;
         color:white;
     }
+    #future-hours{
+        width: 35%;
+        display: inline-block;
+        margin-bottom: 8px;
+        margin-left: 41.5%;
+    }
+    #attending, #users{
+        width: 100%;
+        display: inline-block;
+    }
+    #finder{
+        margin-bottom: 4px;
+        width: 80%;
+    }
+    .mult{
+        display: inline-block;
+        width: 49%;
+        margin: 0px
+    }
+    
 @media only screen and (max-width: 1200px) and (min-width: 1000px) {
     #message{
         left:0%;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/js/hourSelector.js</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Time&amp;End.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/RegisLog.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/RoomController.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/NewUser.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/LogController.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/.env</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/js/RoomsEfects.js</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Kernel.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Rooms.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Middleware/Admin.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/layout.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/User.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/css/ShowRooms.css</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Partials/errors.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/css/Login.css</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/Auth/AuthController.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+        </group>
+    </open-files>
+</project-private>

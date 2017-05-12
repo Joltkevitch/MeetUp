@@ -33,9 +33,11 @@ class RoomController extends Controller
        
        $rName=DB::table("ROOMS")
                ->join("LOCATIONS","LOCATION_ID","like","LOCATIONS.LOCATION_CODE")
-               ->select("NAME","LOCATIONS.LOCATION_NAME")
+               ->select("ROOM_ID","NAME","LOCATIONS.LOCATION_NAME","LOCATIONS.LOCATION_CODE")
                ->where("ROOM_ID","like",$room)->get();
        
+       
+       $user=DB::table("users")->select("USER_ID","FIRST_NAME","LAST_NAME")->get();
        
        $meets=DB::table("meetings")
                ->join("ROOMS","ROOM_CODE","like","ROOMS.ROOM_ID")
@@ -43,6 +45,6 @@ class RoomController extends Controller
                ->where("ROOM_CODE","=",$room)
                ->where("MEETING_DATE","like",$date)->get();
        
-      return view("Meetings/Time&End")->with("date",$date)->with("room",$room)->with("meetings",$meets)->with("roomName",$rName);
+      return view("Meetings/Time&End")->with("date",$date)->with("room",$room)->with("meetings",$meets)->with("roomName",$rName)->with("users",$user);
    }
 }
