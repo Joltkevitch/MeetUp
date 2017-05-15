@@ -43,3 +43,7 @@ Route::post("When",[
     'middelware' => 'auth',
     'uses' => 'RoomController@reserveRoom'
 ]);
+Route::post("Done",[
+    'middelware' => 'auth',
+    'uses' => 'MeetingsController@store'
+]);

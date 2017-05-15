@@ -1,17 +1,38 @@
 window.onload=function(){
     
+    //Declaracion de variables 
     var Chosen_date=document.getElementById("ChosenD").value;// fecha escogida en el formulario anterior
     var d=new Date(Chosen_date);
     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];//Dias de la semana
     var  months = Array("January", "February", "March", "April", "May", "June", "July", "Agost", "September", "Octuber", "November", "Dicember");//Meses 
+    
     var trs=$("#table-body tr td");//Tds de la tabla 
     var hours= $(".hour");
     var users=document.getElementById("users");
     var attending=document.getElementById("attending");
+    var filter=document.getElementById("finder");
+   
+    var AllUsers;
     var value;//Hora contenida dentro del span
     
     //Asignamos la fecha dada en el formulario anterior 
 document.getElementById("today").innerHTML=(days[d.getDay()]+", "+months[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear());
+
+document.getElementById("finder").addEventListener("keyup",filterInput);
+
+//Filtro para encontrar al usuario deseado mediante un input
+function filterInput(){
+       AllUsers =  document.getElementById("users").getElementsByTagName("option");
+       filterValue=filter.value.toUpperCase();
+       for(i=0;i < AllUsers.length; i++){
+           if(AllUsers[i].innerHTML.toUpperCase().indexOf(filterValue) > -1 ){
+               AllUsers[i].style.display="";
+           }
+           else{
+               AllUsers[i].style.display="none";
+           }
+       }    
+}
 
  function enableHours(){}
 
@@ -30,11 +51,18 @@ trs.bind("dblclick",function(){
     $(this).children(".add").trigger("click");
 });
 $(".add").click(function(){
+       console.log(attending.getElementsByTagName("option"));
+       for(i=0;i < attending.getElementsByTagName("option").length; i++){
+        user=attending.getElementsByTagName("option")[i];
+        user.removeEventListener("dblclick",changeUSER);
+        user.addEventListener("dblclick",changeATT);
+        document.getElementById("users").appendChild(user);
+    }
     //Asignar hora de inicio de reunion 
     $("#hour").html(value.find("span").text());
-   $("#SA").val(value.find("span").text());
-    $("#future-hour").empty();//Vaciar  el select para poner nuevos valores 
-    
+    $("#SA").val(value.find("span").text());
+    $("#future-hours").empty();//Vaciar  el select para poner nuevos valores 
+
     //Asignamos las posibles horas que pueda durar la reunion
        for(i=value.find("span").index(".hour")+1;i<$(".hour").length ;i++){
            if(!$("#table-body tr td:eq("+i+")").hasClass("disabled")){// Si el td de la posicion i no tiene la clase disables 
@@ -45,6 +73,7 @@ $(".add").click(function(){
                break;
            }
         }
+
     });
 
 //Deshabilitamos las horas que ya estan selecionados segun la base de datos, para que el usuario no pueda seleccionarlas 
@@ -78,15 +107,15 @@ function disabledHours(){
             }    
         }
     }
-    return value;
 }
-    disabledHours(); 
-   
-  
+    disabledHours(); // Deshabilitamos las horas ya reservadas en el calendario
+    
+    //Anadimos a todos los "option" dentro del select con el id "users" el evento doble click con la funcion "changeATT"
    for(i=0;i<users.options.length;i++){
        users[i].addEventListener("dblclick",changeATT);
      }
-    
+     //Al hacer doble click sobre cualquier option, se le removera su antiguo evento y se le anadira el mismo con otra funcion que cumplira el mismo papel
+     //changeATT nos permite mover un option del select users al select attending (usuarios que iran a la reunion)
    function changeATT(){
        user=this;
        user.removeEventListener("dblclick",changeATT);

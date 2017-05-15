@@ -13,9 +13,10 @@
 <div id="gray-window"></div>
 @section("Contend")
 
-<form>
+<form method="post" action="{{url('Done')}}">
+<input type="hidden" name="_token" value="{{csrf_token()}}">
 <div class="row">
-    <div class="col-lg-2"></div>
+    <div class="col-lg-2">@include("Partials/errors")</div>
     <div class="col-lg-3 alert alert-info" id="select-column">
     <h1>Select an hour</h1>
     </div>
@@ -37,8 +38,6 @@
 
     </div>
     <div class="col-lg-10" id="table-container">
-        <input type='hidden' value='{{$date}}' id='ChosenD'/>
-        <input type='hidden' value='{{$room}}' id="ChosenR">
         <table class='table table-responsive  table-borderless' id='hours'>
                     <h2>Daily calendar:</h2>
              <tr>
@@ -73,17 +72,18 @@
     
 </div>
     <div class="form-group" id="ReservationEnd">
-        @foreach ($roomName as $room )
-        <p><span class=''>Location: {{$room->LOCATION_NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->LOCATION_CODE}}' name="F_LOCATION" required disabled/>
-        <p><span>Room's name: {{$room->NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->ROOM_ID}}' name="F_ROOM" required disabled/>
+       <input class="form-control" type='hidden' value='{{Auth::user()->USER_ID}}' name="USER" required />
+        @foreach ($roomName as $room )          
+        <p><span class=''>Location: {{$room->LOCATION_NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->LOCATION_CODE}}' name="F_LOCATION" required />
+        <p><span>Room's name: {{$room->NAME}}</span></p>  <input class="form-control" type='hidden' value='{{$room->ROOM_ID}}' name="F_ROOM" required />
         @endforeach
-        <p><span>Chosen Date: {{$date}}</span></p>  <input class="form-control" type='hidden' value='{{$date}}' name="F_DATE" required disabled/>
-        <p><span>Meeting starts at: </span><span id='hour'></span></p><input class="form-control" type='hidden' value='' name="StartsAt" id="SA" required disabled/>
+        <p><span>Chosen Date: {{$date}}</span></p>  <input id="ChosenD" class="form-control" type='hidden' value='{{$date}}' name="F_DATE" required />
+        <p><span>Meeting starts at: </span><span id='hour'></span></p><input class="form-control"  id="SA" type='hidden' value='' name="StartsAt" required />
                 <span>Meeting ends at:</span>
-        <select class="form-control" id="future-hours">
+        <select class="form-control" id="future-hours" name='EndsAt'>
         </select>
         <div class="mult">
-            <input type="text" class="form-control" placeholder="Looking for" id="finder">
+            <input type="text" class="form-control" placeholder="Look for a user" id="finder">
             <p> <span>Users:</span> </p>
         <select class="form-control" id="users" multiple>
             @foreach($users as $user)
@@ -92,11 +92,14 @@
         </select>
             </div>
             <div class="mult">
-                <p><span>Attending:</span></p>
-        <select class="form-control" id="attending" multiple name="Attending">
+                <p><span>Users invited:</span></p>
+                <select class="form-control" id="attending" multiple name="Attending[]" required>
         </select>
         </div>
-                <textarea></textarea>
+                <span>Notes:</span>
+                <textarea class="form-control" id='textarea' placeholder="What's the meeting about?" name='Notes' maxlength="255"></textarea>
+                <button type='submit' class="formButton R">Reserve</button>
+                <button type='button' class="formButton  C">Cancel</button>
     </div>
 </form>
 

@@ -9,6 +9,8 @@ and open the template in the editor.
 */
 @import url('https://fonts.googleapis.com/css?family=Baloo');
 @import url('https://fonts.googleapis.com/css?family=Amiri');
+ @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 body{
     overflow-x: hidden;
 }
@@ -216,9 +218,15 @@ color:#269abc;
         z-index: 3;
         left:27.5%;
         top:35%;
-        background-color: rgb(0,75,75);
+        background-color: rgba(0,75,75,0.8);
         padding: 20px;
         color:white;
+        border: 2px solid #009999;
+        border-radius: 8px;
+    }
+    #ReservationEnd span{
+        font-weight: 600;
+        font-family: 'Quicksand', sans-serif;
     }
     #future-hours{
         width: 35%;
@@ -238,6 +246,40 @@ color:#269abc;
         display: inline-block;
         width: 49%;
         margin: 0px
+    }
+    #textarea{
+        width: 99.1%;
+    }
+    .formButton{
+        width: 49%;
+        display: inline-block;
+        color:black;
+        margin-left: 1px;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        font-weight: 600;
+        line-height: 1.42857143;
+        text-align: center;
+        vertical-align: middle;
+        padding: 6px 12px;
+        transition: 0.5s;
+    }
+    .C{
+        background-color: #ed4747;
+        border:1px solid #ba0909;
+    }
+    .R{
+        background-color: #ffc021;
+        border:1px solid #ffe500;
+    }
+    .C:hover{
+        background-color: #fc1b1b;
+        border:1px solid #ba0909;
+    }
+    .R:hover{
+        background-color: #e0950b;
+        border:1px solid #ffe500;
     }
     
 @media only screen and (max-width: 1200px) and (min-width: 1000px) {
