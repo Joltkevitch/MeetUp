@@ -6,7 +6,6 @@
         <div class="col-lg-3">
         </div>
         <div class="col-lg-6" id="login">
-            <h1>There was a form here </h1><!-- 
             <form method="post" action="{{url('Welcome')}}">
                 <h2><strong>Log in</strong><span> with</span></h2>
                 <div class="form-group">
@@ -38,7 +37,6 @@
                         <input type="text" class="form-control" id="Title" name="Tit" placeholder="Your title" maxlength="30" value="{{ old('Tit') }}" />
                     </div>
                 </div>
-                
                 <div class="col-lg-6" id="right">
                     <div class="form-group">
                         <h3><strong>Choose your Location:</strong></h3>
@@ -67,7 +65,6 @@
                  @include("Partials/errors")
             </form>
         </div>
-                      -->
         <div class="col-lg-3">
         </div>
     </div>
