@@ -37,7 +37,7 @@ class RoomController extends Controller
                ->where("ROOM_ID","like",$room)->get();
        
        
-       $user=DB::table("users")->select("USER_ID","FIRST_NAME","LAST_NAME")->get();
+       $user=DB::table("users")->select("EMAIL","FIRST_NAME","LAST_NAME")->get();
        
        $meets=DB::table("meetings")
                ->join("ROOMS","ROOM_CODE","like","ROOMS.ROOM_ID")

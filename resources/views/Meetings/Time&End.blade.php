@@ -8,6 +8,7 @@
        meetings.push( window["meeting"+i]);
              i++;
         @endforeach
+        console.log(meetings);
         </script>
 <script src='js/hourSelector.js' type='text/javascript'></script>
 <div id="gray-window"></div>
@@ -87,7 +88,7 @@
             <p> <span>Users:</span> </p>
         <select class="form-control" id="users" multiple>
             @foreach($users as $user)
-            <option value="{{$user->USER_ID}}">{{$user->FIRST_NAME}} {{$user->LAST_NAME}}</option>
+            <option value="{{$user->EMAIL}}">{{$user->FIRST_NAME}} {{$user->LAST_NAME}}</option>
             @endforeach
         </select>
             </div>

@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+use \Illuminate\Support\Facades\Auth;
 //Ruta para ver formulario de log In
 Route::get('/',[
     'uses' => 'LogController@showLog',
@@ -26,6 +26,14 @@ Route::post("congrats","UserController@store");
 
 //Ruta que se usa para autentificar al usuario
 Route::post("Welcome","LogController@logIn")->after("auth");// Luego de autentificar
+
+Route::get("Welcome",function(){
+    if(Auth::check()===true){
+    return View("Meetings/AfterLog");}
+    else{
+    redirect::to("/");
+    }
+})->after("auth");// Luego de autentificar
 
 //Ruta para volver al formulario e log in, cuando se desloguea un usuario
 Route::get('Logout',"LogController@logOut");

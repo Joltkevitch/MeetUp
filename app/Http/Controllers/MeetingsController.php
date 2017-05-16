@@ -46,6 +46,11 @@ class MeetingsController extends Controller
            "Attending"=> ["required"],
            "Notes"=>["required","max:255"]
                   ]);
+       $users[]=[""];
+       foreach($invited as $user){
+           array_push($users,$user);
+       }
+       $value=implode(",",$invited);
        $data[]=[
            "MEETING_NUMBER" => NULL,
            "USER_CODE" => $UserId,
@@ -54,13 +59,14 @@ class MeetingsController extends Controller
            "MEETING_DATE" => $date,
            "TIME_FROM" => $from.":00",
            "TIME_TO" => $to.":00",
-           "USERS_ATT"  => $UserId,
+           "USERS_ATT"  => $value,
+           "NOTES" => $Notes
        ];
        
        
-       DB::table("users")->insert($data);
+       DB::table("meetings")->insert($data);
        
-       return("funciona");
+       return View("Meetings/Reserved")->with("from",$from)->with("to",$to)->with("date",$date);
        
     }
 

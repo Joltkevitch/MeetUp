@@ -16,7 +16,14 @@ class LogController extends Controller
 {
     //metodo para mostrar el formulario de logueado
     public function showLog(){
-        return view("Meetings/RegisLog");
+        
+        //Si el usuario ya esta logueado lo redirigimos a la pagina principal 
+     if(Auth::check()===true){
+     return view("Meetings/AfterLog");}
+    else{//Si no lo redirigimos a la parte de logueado
+    return view("Meetings/RegisLog");
+    }
+        
     }
 
     //Autentificar usuario de la base de datos 

@@ -23,8 +23,8 @@
                 <a href="#" class="navbar-brand" id="brand">MeetUp</a>
             </div>
             <ul class="nav navbar-nav" id="navUl">
+                 <li><a href={{url('Welcome')}}><strong>Home</strong></a></li>
                 <li><a href="https://redeemgroup.sharepoint.com/RedeemIT/SitePages/Home.aspx"><strong>SharePoint</strong></a></li>
-                <li><a href="#"><strong>Redeem IT</strong></a></li>
                 <li><a href="https://www.hotmail.com"><strong>Hotmail</strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right RightBar" id="log">

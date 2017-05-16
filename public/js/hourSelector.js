@@ -51,13 +51,9 @@ trs.bind("dblclick",function(){
     $(this).children(".add").trigger("click");
 });
 $(".add").click(function(){
-       console.log(attending.getElementsByTagName("option"));
-       for(i=0;i < attending.getElementsByTagName("option").length; i++){
-        user=attending.getElementsByTagName("option")[i];
-        user.removeEventListener("dblclick",changeUSER);
-        user.addEventListener("dblclick",changeATT);
-        document.getElementById("users").appendChild(user);
-    }
+    $("#gray-window").fadeIn(1000,"linear");
+    $("#ReservationEnd").slideDown(1000,"swing");
+    
     //Asignar hora de inicio de reunion 
     $("#hour").html(value.find("span").text());
     $("#SA").val(value.find("span").text());
@@ -73,7 +69,6 @@ $(".add").click(function(){
                break;
            }
         }
-
     });
 
 //Deshabilitamos las horas que ya estan selecionados segun la base de datos, para que el usuario no pueda seleccionarlas 
@@ -81,11 +76,11 @@ function disabledHours(){
     for(x=0; x<meetings.length; x++){
         for(i=0;i<hours.length ;i++){
         var hour=$(".hour:eq("+i+")").html();
-        if(meetings[x].timeFrom == hour){
-                while(meetings[x].timeTo != hour){
+        if(meetings[x].timeFrom === hour){
+                while(meetings[x].timeTo !== hour){
                 hour=$(".hour:eq("+i+")").html();
                 $("#table-body tr td:eq("+i+")").unbind().css("background-color","rgba(0, 43, 43, 0.5)").addClass("disabled");
-                if(meetings[x].timeTo == hour && $("#table-body tr td:eq("+(i+1)+")").css("background-color") !="rgba(0, 43, 43, 0.5)" ){
+                if(meetings[x].timeTo === hour && $("#table-body tr td:eq("+(i+1)+")").css("background-color") !=="rgba(0, 43, 43, 0.5)" ){
                 $("#table-body tr td:eq("+i+")").bind({
                     click:function()
                     {
@@ -108,26 +103,43 @@ function disabledHours(){
         }
     }
 }
-    disabledHours(); // Deshabilitamos las horas ya reservadas en el calendario
+ // Deshabilitamos las horas ya reservadas en el calendario
+    disabledHours();
     
     //Anadimos a todos los "option" dentro del select con el id "users" el evento doble click con la funcion "changeATT"
    for(i=0;i<users.options.length;i++){
-       users[i].addEventListener("dblclick",changeATT);
+       users.getElementsByTagName("option")[i].addEventListener("dblclick",changeATT);
      }
+     
      //Al hacer doble click sobre cualquier option, se le removera su antiguo evento y se le anadira el mismo con otra funcion que cumplira el mismo papel
      //changeATT nos permite mover un option del select users al select attending (usuarios que iran a la reunion)
+     
    function changeATT(){
        user=this;
        user.removeEventListener("dblclick",changeATT);
        user.addEventListener("dblclick",changeUSER);
-       document.getElementById("attending").appendChild(user);
+       attending.appendChild(user);
        //users.removeChild(user);
    }
    function changeUSER(){
        user=this;
        user.removeEventListener("dblclick",changeUSER);
        user.addEventListener("dblclick",changeATT);
-       document.getElementById("users").appendChild(user);
+      users.appendChild(user);
    }
 
+$(".C").click(function(){
+       $("#ReservationEnd").slideUp(1000,"swing");
+       $("#gray-window").fadeOut(1000,"linear");
+        i=0;   
+        if( attending.getElementsByTagName("option").length > 0){
+        do{
+        user=attending.getElementsByTagName("option")[i];
+        users.appendChild(user);
+         }while( i < attending.getElementsByTagName("option").length);
+         for(i=0;i<users.options.length;i++){
+               users.getElementsByTagName("option")[i].addEventListener("dblclick",changeATT);
+        }
+    }
+});
 };
