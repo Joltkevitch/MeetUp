@@ -23,7 +23,9 @@
                 <a href="#" class="navbar-brand" id="brand">MeetUp</a>
             </div>
             <ul class="nav navbar-nav" id="navUl">
+                @if(Auth::check())
                  <li><a href={{url('Welcome')}}><strong>Home</strong></a></li>
+                 @endif
                 <li><a href="https://redeemgroup.sharepoint.com/RedeemIT/SitePages/Home.aspx"><strong>SharePoint</strong></a></li>
                 <li><a href="https://www.hotmail.com"><strong>Hotmail</strong></a></li>
             </ul>

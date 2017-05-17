@@ -28,6 +28,9 @@
             <!-- INFO -->
             <div class="Data">
                 <!-- Date -->
+                <div class="alert alert-danger" id="no-week-ends">
+                    Only working days!
+               </div>
                 <div class='input-group date' id='datetimepicker1'>
                     <input type='date' class="form-control" id="dates" name="WishDate" value="" required/>
                     <span class="input-group-addon">

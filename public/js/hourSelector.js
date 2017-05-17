@@ -128,6 +128,7 @@ function disabledHours(){
       users.appendChild(user);
    }
 
+//Boton de "Cancel"
 $(".C").click(function(){
        $("#ReservationEnd").slideUp(1000,"swing");
        $("#gray-window").fadeOut(1000,"linear");

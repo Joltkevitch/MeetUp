@@ -17,7 +17,20 @@ window.onload=function(){
      var month=date.getMonth()+1;
     document.getElementById("dates").value=date.getFullYear()+"-0"+month+"-"+date.getDate();// Por defecto ponemos la fecha de hoy en el input type=date
     
-     
+    document.getElementById("dates").addEventListener("change",noWeekends);
+    
+    function noWeekends(){
+       wishDate=new Date(document.getElementById("dates").value);
+    if(wishDate.getDay() === 6 || wishDate.getDay() === 0){
+        document.getElementById("Next").disabled=true;
+         document.getElementById("Next").opacity="0.4";
+    }
+    else{
+        document.getElementById("Next").disabled=false;
+        document.getElementById("Next").opacity="0.4";
+       }
+    }
+    
      for(x=0 ; x<document.getElementsByClassName("roomdesc").length; x++){// Evento onclick a los divs con los datos de las habitaciones 
          document.getElementsByClassName("roomdesc")[x].addEventListener("click",clickRoom);
      }

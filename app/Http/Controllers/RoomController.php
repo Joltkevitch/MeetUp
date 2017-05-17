@@ -13,10 +13,10 @@ class RoomController extends Controller
 {
    public function showRooms(){
         $rooms=DB::table("rooms")
-                ->where("ROOMS.LOCATION_ID","=",Auth::user()->LOCATION_ID)->get(); // selecionamos todas las habitaciones dentro de la localidad del usuario logueado
+                ->where("LOCATION_ID","=",Auth::user()->LOCATION_ID)->get(); // selecionamos todas las habitaciones dentro de la localidad del usuario logueado
                // ->join("LOCATIONS","LOCATION_ID","=","LOCATIONS.LOCATION_CODE")->get();
         
-        $Loc=DB::table("Locations")->where("LOCATION_CODE","like",Auth::user()->LOCATION_ID)->pluck("LOCATION_NAME");//seleccionamos la localidad dl usuario logueado
+        $Loc=DB::table("locations")->where("LOCATION_CODE","like",Auth::user()->LOCATION_ID)->pluck("LOCATION_NAME");//seleccionamos la localidad dl usuario logueado
        return view("Meetings/Rooms")->with("Location",$Loc)->with("rooms",$rooms);
    }
 
@@ -29,19 +29,18 @@ class RoomController extends Controller
        ]);
        $date=$request->get('WishDate');//fecha escogida por el usuario
        $room=$request->get('room');//habitacion escogida por el usuario
-       $today=date("Y/m/d");
        
-       $rName=DB::table("ROOMS")
-               ->join("LOCATIONS","LOCATION_ID","like","LOCATIONS.LOCATION_CODE")
-               ->select("ROOM_ID","NAME","LOCATIONS.LOCATION_NAME","LOCATIONS.LOCATION_CODE")
+       $rName=DB::table("rooms")
+               ->join("locations","LOCATION_ID","like","locations.LOCATION_CODE")
+               ->select("ROOM_ID","NAME","locations.LOCATION_NAME","locations.LOCATION_CODE")
                ->where("ROOM_ID","like",$room)->get();
        
        
        $user=DB::table("users")->select("EMAIL","FIRST_NAME","LAST_NAME")->get();
        
        $meets=DB::table("meetings")
-               ->join("ROOMS","ROOM_CODE","like","ROOMS.ROOM_ID")
-               ->select("ROOMS.NAME",DB::raw("TIME_FORMAT(MEETINGS.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(MEETINGS.TIME_TO,'%H:%i') as TIME_TO"))
+               ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
+               ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"))
                ->where("ROOM_CODE","=",$room)
                ->where("MEETING_DATE","like",$date)->get();
        

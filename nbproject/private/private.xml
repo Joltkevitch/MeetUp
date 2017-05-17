@@ -8,6 +8,7 @@
             <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/RegisLog.blade.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/RoomController.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/NewUser.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Reserved.blade.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Meeting.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/LogController.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/public/js/RoomsEfects.js</file>

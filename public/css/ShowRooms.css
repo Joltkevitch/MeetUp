@@ -290,6 +290,9 @@ color:#269abc;
     .alert-info{
         height: 10%;
     }
+    #no-week-ends{
+        position: absolute;
+    }
 @media only screen and (max-width: 1200px) and (min-width: 1000px) {
     #message{
         left:0%;

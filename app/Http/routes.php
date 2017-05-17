@@ -31,7 +31,7 @@ Route::get("Welcome",function(){
     if(Auth::check()===true){
     return View("Meetings/AfterLog");}
     else{
-    redirect::to("/");
+    return redirect()->action('LogController@showLog');
     }
 })->after("auth");// Luego de autentificar
 
