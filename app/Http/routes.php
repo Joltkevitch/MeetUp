@@ -29,9 +29,10 @@ Route::post("Welcome","LogController@logIn")->after("auth");// Luego de autentif
 
 Route::get("Welcome",function(){
     if(Auth::check()===true){
-    return View("Meetings/AfterLog");}
-    else{
     return redirect()->action('LogController@showLog');
+    }
+    else{
+    return View("Meetings/RegisLog");
     }
 })->after("auth");// Luego de autentificar
 
@@ -55,3 +56,7 @@ Route::post("Done",[
     'middelware' => 'auth',
     'uses' => 'MeetingsController@store'
 ]);
+
+Route::get("YourMeetings",[
+    'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
+    'uses' => "MeetingsController@showYourMeetings"]);

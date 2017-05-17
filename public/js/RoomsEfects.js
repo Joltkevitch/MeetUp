@@ -19,15 +19,20 @@ window.onload=function(){
     
     document.getElementById("dates").addEventListener("change",noWeekends);
     
+    //Funcion que deshabilita el boton de submit para continuar con el formulario si la fecha coincide con un fin de semana
     function noWeekends(){
        wishDate=new Date(document.getElementById("dates").value);
     if(wishDate.getDay() === 6 || wishDate.getDay() === 0){
         document.getElementById("Next").disabled=true;
-         document.getElementById("Next").opacity="0.4";
+        document.getElementById("Next").value="No weekends!";
+        document.getElementById("Next").style.backgroundColor="#ff3333";
+        document.getElementById("Next").style.borderColor="#800000";
     }
     else{
         document.getElementById("Next").disabled=false;
-        document.getElementById("Next").opacity="0.4";
+        document.getElementById("Next").value="Continue";
+        document.getElementById("Next").style.backgroundColor="#006699";
+        document.getElementById("Next").style.borderColor="#2e6da4";
        }
     }
     

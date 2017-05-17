@@ -7,6 +7,7 @@ and open the template in the editor.
     Created on : 28-Apr-2017, 11:42:42
     Author     : Alejandro.Joltkevich
 */
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
  body
 {
     overflow-x: hidden;
@@ -22,7 +23,7 @@ and open the template in the editor.
     transition: 0.5s;
     margin-bottom: 1%;
 }
-#reserve,#FutureMeetings,#PastMeetings {
+#reserve {
     display: inline-block;
     width:33.03%;
     margin-bottom:2%;
@@ -37,12 +38,6 @@ and open the template in the editor.
         padding-left: 5px;
         transition: 0.2s;
     }
-    #reserve, #PastMeetings, #FutureMeetings{
-        margin-bottom: 2%;
-        width: 31%;
-        display: inline-block;
-    }
-
 }
 @media only screen and (max-width: 320px) {
     .col-lg-4 {
@@ -119,16 +114,76 @@ and open the template in the editor.
         left: 8.33%
     }
 }
+#problematico{
+    background-image:url("../imgs/redeemForm.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    transition: 15s;
+}
+
 .table{
     position: relative;
+    background-color: rgba(0, 102, 102,0.5);
 }
-.table tbody td:hover {
-    background-color: palegoldenrod;
+#table-today tbody tr:hover {
+    background-color: rgba(0, 130, 130,0.6);
 }
-#table tbody tr:hover {
-    background-color: #d58512;
+#table-past tbody tr:hover {
+    background-color: rgba(0, 130, 130,0.6);
+}
+#table-yours tbody tr:hover {
+    background-color: rgba(0, 130, 130,0.6);
 }
 
 .table tbody td, .table tbody tr{
     transition: 0.5s;
+}
+
+.table{
+    position: relative;
+    width: 90%;
+    margin-top: 10px;
+}
+td{
+    max-width: 150px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.table tbody td{
+    color:white;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+.table th{
+        font-weight: 900;
+}
+ .btn-primary{
+     width: 33%;
+     margin: 8px 0px 15px 0px;
+     transition: 0.3s;
+}
+.btn-primary:nth-child(2){
+    background-color: rgb(200,200,200);
+    color:black;
+    border-color: #666;
+}
+.btn-primary:nth-child(2):hover{
+    background-color: rgb(150,150,150);
+    color:black;
+    border-color: #8c8c8c;
+}
+.btn-primary:nth-child(3){
+    background-color: #f0ad4e;
+     border-color:#eea236;
+}
+.btn-primary:nth-child(3):hover{
+    background-color: #ec971f;
+     border-color:#d58512;
+}
+#table-past,#table-yours{
+    display: none;
+}
+table{
+    position: relative;
 }

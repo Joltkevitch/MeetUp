@@ -135,7 +135,6 @@ color:#269abc;
         top:40%;
         border-radius: 100px;
         background:#006699;
-        padding: 20px;
         width: 100px;
         font-weight: 600;
         height: 100px;
@@ -290,9 +289,7 @@ color:#269abc;
     .alert-info{
         height: 10%;
     }
-    #no-week-ends{
-        position: absolute;
-    }
+
 @media only screen and (max-width: 1200px) and (min-width: 1000px) {
     #message{
         left:0%;

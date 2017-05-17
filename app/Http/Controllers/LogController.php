@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LogController extends Controller
 {
@@ -18,8 +19,35 @@ class LogController extends Controller
     public function showLog(){
         
         //Si el usuario ya esta logueado lo redirigimos a la pagina principal 
-     if(Auth::check()===true){
-     return view("Meetings/AfterLog");}
+     if(Auth::check()===true){    
+         //Select de las reuniones que se celebran en la fecha/dia actual
+         $today_date=date("Y/m/d");
+         
+          $todays=DB::table("meetings")
+                   ->join("users","USER_CODE","like","users.USER_ID")
+                   ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
+                   ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
+                   ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES")->
+                    whereDate("meetings.MEETING_DATE","=",$today_date)->get();
+          
+          $yours=DB::table("meetings")
+                   ->join("users","USER_CODE","like","users.USER_ID")
+                   ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
+                   ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
+                   ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
+                    where("meetings.USER_CODE","like",Auth::user()->USER_ID)->
+                    whereDate("meetings.MEETING_DATE",">=",$today_date)->get();
+          
+          $past=DB::table("meetings")
+                   ->join("users","USER_CODE","like","users.USER_ID")
+                   ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
+                   ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
+                   ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
+                    whereDate("meetings.MEETING_DATE","<",$today_date)->get();
+     
+          return view("Meetings/AfterLog")->with("Meetings",$todays)->with("pasts",$past)->with("yours",$yours);
+     
+     }
     else{//Si no lo redirigimos a la parte de logueado
     return view("Meetings/RegisLog");
     }
