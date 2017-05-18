@@ -1,0 +1,112 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-May-2017, 13:41:52
+    Author     : Alejandro.Joltkevich
+*/
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif|Libre+Baskerville');
+ #UserData {
+background-color:#E7AF38;
+border:1px solid #E57A0A;
+}
+h2 {
+ background-color:#ff6a00;
+ margin:auto;
+ border-radius:8px;
+ width:60%;
+ margin-bottom:5px;
+ margin-top:5px;
+ padding:3px;
+ color:white;
+}
+h3,h2 {
+text-align:center;
+font-family: 'Libre Baskerville', serif;
+}
+h3 {
+text-align:left;
+color:black;
+}
+.col-lg-12{
+background-color:#00ADED;
+margin-bottom:10px;
+border:1px solid black;
+border-radius:8px;
+}
+#update {
+display:none;
+}
+.data {
+color:#2b2b2b;
+font-size:14px;
+font-weight:600;
+font-family: 'Libre Baskerville', serif;
+}
+p {
+font-family: 'Droid Serif', serif;
+font-size:16px;
+}
+#edit span {
+color:white;
+font-size:20px;
+}
+#edit {
+position:absolute;
+top:45px;
+right:0%;
+background-color:#ff4600;
+color:white;
+width:50px;
+height:50px;
+border:1px solid white;
+border-radius:100px;
+transition:0.5s;
+font-size:15px;
+z-index:2;
+}
+#save {
+position:relative;
+left:24%;
+width:50%;
+margin-bottom:5px;
+background-color:orange;
+color:black;
+border-color:black;
+transition:0.5s;
+}
+input[name=first], input[name=last] {
+width:49.5%;
+display:inline-block;
+}
+input {
+transition:0.5s;
+}
+#save:hover {
+    background-color:#ff4600;
+    color:white;
+    border-color:white;
+}
+    #edit:hover{
+    background-color:orange;
+    color:black;
+    border-color:black;
+    }
+@media only screen and (max-width:1200px) {
+    #edit {
+    width:45px;
+    height:45px;
+    border-radius:45px;
+    top:10px;
+    right:9%;    
+    }
+    #save {
+        width: 25%;
+    left:37%;
+    }
+    #UserInfo {
+    padding-left:40px;
+    }
+}

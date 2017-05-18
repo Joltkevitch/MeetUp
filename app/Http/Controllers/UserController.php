@@ -8,6 +8,7 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,9 +17,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function profileShow()
     {
-        //
+       if(Auth::check()){
+           return view("Meetings/Profile");
+       }
+       else{
+           return redirect()->route('Login');
+       }
     }
     public function create()
     {

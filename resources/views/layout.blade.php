@@ -37,7 +37,7 @@
                 <li class='dropdown'id="profileName"><a  class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>{{ Auth::user()->FIRST_NAME }} </a>
                 <ul class="dropdown-menu">
                 <li id="logout"><a  class="btn btn-primary btn-xs " href="Logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                 <li id="profile"><a  class="btn btn-primary btn-xs " href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                 <li id="profile"><a  class="btn btn-primary btn-xs " href="Profile"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
                 </ul>
                 </li>
                 @endif

@@ -18,21 +18,21 @@ var div=$("#problematico");
 btn_yours.click(function(){
         today.fadeOut(350);
         past.fadeOut(350);
-        height2=parseInt(yours.css("height"))+45;
+        height2=parseInt(yours.css("height"))+60;
         div.animate({height: height2+"px"},100);
          yours.delay(600).fadeIn(350,"swing");
 });
 btn_today.click(function(){
         yours.fadeOut(350);
         past.fadeOut(350);
-        height2=parseInt(today.css("height"))+45;
+        height2=parseInt(today.css("height"))+60;
         div.animate({height: height2+"px"},100);
         today.delay(600).fadeIn(350,"swing");
 });
 btn_past.click(function(){
         yours.fadeOut(350);
         today.fadeOut(350);
-        height2=parseInt(past.css("height"))+30;
+        height2=parseInt(past.css("height"))+60;
         div.animate({height: height2+"px"},100);
         past.delay(600).fadeIn(350,"swing");
 });

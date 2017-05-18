@@ -61,6 +61,8 @@ Route::get("YourMeetings",[
     'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
     'uses' => "MeetingsController@showYourMeetings"]);
 
+Route::get("Profile","UserController@profileShow");
+
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');

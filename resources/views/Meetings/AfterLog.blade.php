@@ -12,6 +12,7 @@
               </div>  
               <br />
                 <a href="Rooms" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
+                <a href="Rooms" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-1"></div>
@@ -33,7 +34,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
                         @foreach($Meetings as  $today)
                         <tr>
                             <td>{{$today->FIRST_NAME}} {{$today->LAST_NAME}}</td>
@@ -67,7 +67,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
                         @foreach($pasts as  $past)
                         <tr>
                             <td>{{$past->FIRST_NAME}} {{$today->LAST_NAME}}</td>
@@ -99,13 +98,14 @@
                         <th>Time to</th>
                         <th>People attending</th>
                         <th>Notes</th>
+                        <th></th>
+                        <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        
                         @foreach($yours as  $your)
                         <tr>
-                            <td>{{$your->FIRST_NAME}} {{$today->LAST_NAME}}</td>
+                            <td>{{$your->FIRST_NAME}} {{$today->LAST_NAME}}<input type="hidden" value="{{$your->MEETING_NUMBER}}" name="CancelData"></td>
                             <td>{{$your->LOCATION_NAME}}</td>
                             <td>{{$your->NAME}}</td>
                             <td>{{$your->MEETING_DATE}}</td>
@@ -124,5 +124,4 @@
                 @endif
         </div>
             <div class="col-lg-1"></div>
-
 @endsection

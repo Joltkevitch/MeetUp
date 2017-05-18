@@ -3,8 +3,8 @@
 <div class='row'>
 <div class='col-lg-2'></div>
 <div class='col-lg-8'>
-    <form method="POST" action="/password/email">
-    {!! csrf_field() !!}
+    <form method="POST" action="/password/email"> 
+   {!! csrf_field() !!}
 
     @if (count($errors) > 0)
         <ul>

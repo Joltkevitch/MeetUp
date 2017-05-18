@@ -28,6 +28,13 @@ and open the template in the editor.
     width:20.03%;
     margin-bottom:2%;
     margin-top: -2%;
+    float: left;
+}
+#viewCancel {
+    display: inline-block;
+    width:20.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
     float: right;
 }
 @media only screen and (max-width: 1200px) {
@@ -164,15 +171,21 @@ td{
      width: 33%;
      transition: 0.3s;
 }
+.btn-primary:nth-child(1){
+    background-color: #f0ad4e;
+     border-color:#eea236;
+}
+.btn-primary:nth-child(1):hover{
+    background-color: #ec971f;
+     border-color:#d58512;
+}
 .btn-primary:nth-child(2){
-    background-color: rgb(200,200,200);
-    color:black;
-    border-color: #666;
+    background-color: #f0ad4e;
+     border-color:#eea236;
 }
 .btn-primary:nth-child(2):hover{
-    background-color: rgb(150,150,150);
-    color:black;
-    border-color: #8c8c8c;
+    background-color: #ec971f;
+     border-color:#d58512;
 }
 .btn-primary:nth-child(3){
     background-color: #f0ad4e;
