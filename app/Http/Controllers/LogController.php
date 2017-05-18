@@ -79,7 +79,7 @@ class LogController extends Controller
          Auth::login($user,$remember);// Logear al usuario introducido
          
          $Info= Auth::user();
-        return View("Meetings/AfterLog")->with("info",$Info);//Siguiente pagina, le pasamos la informacion del usuario logueado
+       return redirect()->action('LogController@showLog')->with("info",$Info);//Siguiente pagina, le pasamos la informacion del usuario logueado
         }
        }
         Session::flash("message-error","the e-mail introduced or the password is not correct. Try again.");

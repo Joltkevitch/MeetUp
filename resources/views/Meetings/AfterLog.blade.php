@@ -19,7 +19,7 @@
                 <button type='button' class="btn btn-primary btn-lg"  id='btn-todays'>Today's meetings</button>
                 <button class="btn btn-primary btn-lg" id="btn-yours" ><strong>Your meetings</strong></button>
                 <button class="btn btn-primary btn-lg" id="btn-past" ><strong>See past meetings</strong></button>
-                 @if(count($Meetings) > 0)
+                 @if(! empty($Meetings)) 
                 <table class=" table table-hover table-responsive" id='table-today'>
                     <thead>
                     <tr>
@@ -52,7 +52,7 @@
                      <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
                  </div>
                 @endif
-                 @if(count($pasts) > 0)
+                 @if(! empty($pasts)) 
                 <table class=" table table-hover table-responsive" id='table-past'>
                     <thead>
                     <tr>
@@ -87,7 +87,7 @@
                      <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
                  </div>
                 @endif
-                 @if(count($yours) > 0)
+                 @if(! empty($yours)) 
                 <table class=" table table-hover table-responsive" id='table-yours'>
                     <thead>
                     <tr>

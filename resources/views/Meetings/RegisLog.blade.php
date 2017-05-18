@@ -15,7 +15,7 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                 </div>
                 <div class="checkbox">
-                    <label><input type="checkbox" id="rememberMe" value="true" name='remember' /><strong>Remember me</strong></label><span style="float:right;" class="label label-warning"><a href="#">Forgot your password?</a></span>
+                    <label><input type="checkbox" id="rememberMe" value="true" name='remember' /><strong>Remember me</strong></label><span style="float:right;" class="label label-warning"><a href="password/email">Forgot your password?</a></span>
                 </div>
                 <div>
                     <input type="submit" class="btn btn-warning btn-md" id="submit" value="Submit" />

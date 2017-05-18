@@ -25,9 +25,10 @@ and open the template in the editor.
 }
 #reserve {
     display: inline-block;
-    width:33.03%;
+    width:20.03%;
     margin-bottom:2%;
     margin-top: -2%;
+    float: right;
 }
 @media only screen and (max-width: 1200px) {
     .col-lg-4 {
@@ -118,7 +119,8 @@ and open the template in the editor.
     background-image:url("../imgs/redeemForm.jpg");
     background-size:cover;
     background-repeat:no-repeat;
-    transition: 15s;
+    transition: 0.5s;
+    
 }
 
 .table{
@@ -160,7 +162,6 @@ td{
 }
  .btn-primary{
      width: 33%;
-     margin: 8px 0px 15px 0px;
      transition: 0.3s;
 }
 .btn-primary:nth-child(2){

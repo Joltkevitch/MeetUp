@@ -1,31 +1,40 @@
 window.onload=function(){
     
+    //declaracion de variables 
+            //BOTONES
 var btn_today=$("#btn-todays");
 var btn_past=$("#btn-past");
 var btn_yours=$("#btn-yours");
-
+        //TABLAS
 var today=$("#table-today");
 var past=$("#table-past");
 var yours=$("#table-yours");
 
+//PROPIEDADES
+var height2;
+var div=$("#problematico");
 
+//Al hacer clikc en uno de los botones, se ajustara la altura del div contenedor y se animara con un fadeIn y un fadeOut
 btn_yours.click(function(){
-        today.fadeOut(500);
-        past.fadeOut(500);
-         yours.delay(500).fadeIn(500,"swing");
+        today.fadeOut(350);
+        past.fadeOut(350);
+        height2=parseInt(yours.css("height"))+45;
+        div.animate({height: height2+"px"},100);
+         yours.delay(600).fadeIn(350,"swing");
 });
 btn_today.click(function(){
-        yours.fadeOut(500);
-        past.fadeOut(500);
-        today.delay(500).fadeIn(500,"swing");
-
+        yours.fadeOut(350);
+        past.fadeOut(350);
+        height2=parseInt(today.css("height"))+45;
+        div.animate({height: height2+"px"},100);
+        today.delay(600).fadeIn(350,"swing");
 });
 btn_past.click(function(){
-        yours.fadeOut(500);
-        today.fadeOut(500);
-        past.delay(500).fadeIn(500,"swing");
-
-// captura el height de la tabla que actualmente este activa, y animala altura del div contenedor a esa altura + 60px por ejemplo
+        yours.fadeOut(350);
+        today.fadeOut(350);
+        height2=parseInt(past.css("height"))+30;
+        div.animate({height: height2+"px"},100);
+        past.delay(600).fadeIn(350,"swing");
 });
 
 };
