@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19-May-2017, 16:39:23
+    Author     : Alejandro.Joltkevich
+*/
+.col-lg-10{
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #ed9702;
+}
+.table{
+    position: relative;
+    width: 90%;
+    margin-top: 10px;
+     background-color: rgba(0, 80, 80,0.9);
+}
+.table tbody td{
+    color:white;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+.table tbody td, .table tbody tr{
+    transition: 0.5s;
+}
+.table th{
+        font-weight: 900;
+        color:#66afe9;
+}
+td{
+    max-width: 150px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 65px;
+    padding: 3px;
+    height: 65px;
+}
+#table-past tbody tr:hover {
+    background-color: rgba(0, 130, 130,0.8);
+}

@@ -4,22 +4,31 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/MeetUp/public/css/Logged.css</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Time&amp;End.blade.php</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/RoomController.php</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/LogController.php</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/public/js/MainPage.js</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/config/mail.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/RegisLog.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/.env</file>
             <file>file:/C:/xampp/htdocs/MeetUp/public/js/Logged.js</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Kernel.php</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/MeetingsController.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/AfterLog.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/css/UserProfile.css</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Cancellations.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/css/Login.css</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Time&amp;End.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/RoomController.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/public/js/UserProfile.js</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/LogController.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/resources/views/Meetings/Profile.blade.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/MeetingsController.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Middleware/Admin.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/resources/views/layout.blade.php</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/database/migrations/2017_04_27_150100_create_users_table.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/User.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/public/css/ShowRooms.css</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/UserController.php</file>
             <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Controllers/Auth/AuthController.php</file>
-            <file>file:/C:/xampp/htdocs/MeetUp/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/C:/xampp/htdocs/MeetUp/database/migrations/2014_10_12_100000_create_password_resets_table.php</file>
         </group>
     </open-files>
 </project-private>

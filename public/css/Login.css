@@ -108,12 +108,11 @@ input{
     height: 95%;
 }
 #RightBar {
- height: 95%;
- right: -20px;
+ right: -22px;
 }
 #RightBar a{
  height: 95%;
- right: -15px;
+ right: -17px;
 }
 #RightBar li a{
  margin-right: 5px;
@@ -131,7 +130,8 @@ border-color: #204d74;
     display: none;
 }
 #log li a, #RightBar li a{
-    height: 50px;
+    height: 54px;
+    top:-7px;
 }
 #pass,#newPass{
     margin-top: 8px;

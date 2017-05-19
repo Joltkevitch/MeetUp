@@ -12,15 +12,16 @@
               </div>  
               <br />
                 <a href="Rooms" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
-                <a href="Rooms" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
+                <a href="PastMeetings" class="btn btn-warning btn-lg" id="btn-past" ><strong>See past meetings</strong></a>
+                <a href="Cancellations" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-1"></div>
             <div class="col-lg-10" id="problematico">
                 <button type='button' class="btn btn-primary btn-lg"  id='btn-todays'>Today's meetings</button>
                 <button class="btn btn-primary btn-lg" id="btn-yours" ><strong>Your meetings</strong></button>
-                <button class="btn btn-primary btn-lg" id="btn-past" ><strong>See past meetings</strong></button>
-                 @if(! empty($Meetings)) 
+                 <!-- Tabla con las reuniones que se celebran en la fecha actual --> 
+                 @if(isset($todays)) 
                 <table class=" table table-hover table-responsive" id='table-today'>
                     <thead>
                     <tr>
@@ -34,59 +35,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($Meetings as  $today)
+                        @foreach($todays as  $to)
                         <tr>
-                            <td>{{$today->FIRST_NAME}} {{$today->LAST_NAME}}</td>
-                            <td>{{$today->LOCATION_NAME}}</td>
-                            <td>{{$today->NAME}}</td>
-                            <td>{{$today->TIME_FROM}}</td>
-                            <td>{{$today->TIME_TO}}</td>
-                            <td>{{$today->USERS_ATT}}</td>
-                            <td>{{$today->NOTES}}</td>
+                            <td>{{$to->FIRST_NAME}} {{$to->LAST_NAME}}</td>
+                            <td>{{$to->LOCATION_NAME}}</td>
+                            <td>{{$to->NAME}}</td>
+                            <td>{{$to->TIME_FROM}}</td>
+                            <td>{{$to->TIME_TO}}</td>
+                            <td>{{$to->USERS_ATT}}</td>
+                            <td>{{$to->NOTES}}</td>
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-                 @else
-                 <div class="alert alert-info">
+                    @else
+                 <div class="alert alert-info div">
                      <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
                  </div>
                 @endif
-                 @if(! empty($pasts)) 
-                <table class=" table table-hover table-responsive" id='table-past'>
-                    <thead>
-                    <tr>
-                        <th>Creator</th>
-                        <th>Location</th>
-                        <th>Room</th>
-                        <th>Date</th>
-                        <th>Time from</th>
-                        <th>Time to</th>
-                        <th>People attending</th>
-                        <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pasts as  $past)
-                        <tr>
-                            <td>{{$past->FIRST_NAME}} {{$today->LAST_NAME}}</td>
-                            <td>{{$past->LOCATION_NAME}}</td>
-                            <td>{{$past->NAME}}</td>
-                            <td>{{$past->MEETING_DATE}}</td>
-                            <td>{{$past->TIME_FROM}}</td>
-                            <td>{{$past->TIME_TO}}</td>
-                            <td>{{$past->USERS_ATT}}</td>
-                            <td>{{$past->NOTES}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                 @else
-                 <div class="alert alert-info">
-                     <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
-                 </div>
-                @endif
-                 @if(! empty($yours)) 
+               
+                <!-- Tabla con las reuniones que pertenecen al usuario loggeado [ se muestran a partir de la fecha actial] --> 
+                
+                 @if(isset($yours)) 
                 <table class=" table table-hover table-responsive" id='table-yours'>
                     <thead>
                     <tr>
@@ -105,7 +74,7 @@
                     <tbody>
                         @foreach($yours as  $your)
                         <tr>
-                            <td>{{$your->FIRST_NAME}} {{$today->LAST_NAME}}<input type="hidden" value="{{$your->MEETING_NUMBER}}" name="CancelData"></td>
+                            <td>{{$your->FIRST_NAME}} {{$your->LAST_NAME}}<input type="hidden" value="{{$your->MEETING_NUMBER}}" name="CancelData"></td>
                             <td>{{$your->LOCATION_NAME}}</td>
                             <td>{{$your->NAME}}</td>
                             <td>{{$your->MEETING_DATE}}</td>
@@ -116,12 +85,13 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-                 @else
-                 <div class="alert alert-info">
-                     <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
+                    @else
+                 <div class="alert alert-info div">
+                     <strong>Opps! </strong> You don't have any booked meetings, try to make a reservation.
                  </div>
                 @endif
+                </table>
+                       
         </div>
             <div class="col-lg-1"></div>
 @endsection

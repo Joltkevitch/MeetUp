@@ -47,21 +47,34 @@ Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
 Route::get("Rooms",[
     'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
     'uses' => "RoomController@showRooms"]);
+
 //Continuacion de la reserva de una habitacion
 Route::post("When",[
     'middelware' => 'auth',
     'uses' => 'RoomController@reserveRoom'
 ]);
+
+//Guardamos en la base de datos la nueva reunion introducida
 Route::post("Done",[
     'middelware' => 'auth',
     'uses' => 'MeetingsController@store'
 ]);
 
-Route::get("YourMeetings",[
+//Nos lleva a la vista que nos permite ver las reuniones pasadas 
+Route::get("PastMeetings",[
     'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
-    'uses' => "MeetingsController@showYourMeetings"]);
+    'uses' => "MeetingsController@showPastMeetings"]);
 
+//Nos lleva a la vista que nos permite ver las reuniones canceladas 
+Route::get("CancelMeetings",[
+    'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
+    'uses' => "MeetingsController@showCanelMeetings"]);
+
+//Perfil de usuario loggeado
 Route::get("Profile","UserController@profileShow");
+
+//Actualizar datos o editar datos de usuario loggeado
+Route::post("profile","UserController@update");
 
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');

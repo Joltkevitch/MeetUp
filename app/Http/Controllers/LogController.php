@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class LogController extends Controller
 {
@@ -28,7 +29,7 @@ class LogController extends Controller
                    ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
                    ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
                    ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES")->
-                    whereDate("meetings.MEETING_DATE","=",$today_date)->get();
+                    whereDate("meetings.MEETING_DATE","=",$today_date)->orderBy("TIME_FROM")->simplePaginate(10);
           
           $yours=DB::table("meetings")
                    ->join("users","USER_CODE","like","users.USER_ID")
@@ -36,16 +37,12 @@ class LogController extends Controller
                    ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
                    ->select("meetings.MEETING_NUMBER","rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
                     where("meetings.USER_CODE","like",Auth::user()->USER_ID)->
-                    whereDate("meetings.MEETING_DATE",">=",$today_date)->get();
+                    whereDate("meetings.MEETING_DATE",">=",$today_date)->orderBy("MEETING_DATE","DESC")->simplePaginate(10);
           
-          $past=DB::table("meetings")
-                   ->join("users","USER_CODE","like","users.USER_ID")
-                   ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
-                   ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
-                   ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
-                    whereDate("meetings.MEETING_DATE","<",$today_date)->get();
+         
      
-          return view("Meetings/AfterLog")->with("Meetings",$todays)->with("pasts",$past)->with("yours",$yours);
+         return View::make("Meetings/AfterLog")->with("todays",$todays)->with("yours",$yours);
+          //return View::make("Meetings/AfterLog", compact("todays","yours","pasts"));
      
      }
     else{//Si no lo redirigimos a la parte de logueado
@@ -53,6 +50,7 @@ class LogController extends Controller
     }
         
     }
+   
 
     //Autentificar usuario de la base de datos 
     public function login(LoginRequest $request)

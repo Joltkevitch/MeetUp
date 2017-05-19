@@ -12,11 +12,39 @@ use Illuminate\Support\Facades\Auth;
 class MeetingsController extends Controller
 {
 
-    public function index()
-    {
-        //
+    public function showPastMeetings(){
+           $today_date=date("Y/m/d");
+          if(Auth::check()===true){    
+              
+         $pasts=DB::table("meetings")
+                   ->join("users","USER_CODE","like","users.USER_ID")
+                   ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
+                   ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
+                   ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
+                    whereDate("meetings.MEETING_DATE","<",$today_date)->orderBy("MEETING_DATE","DESC")->simplePaginate(10);
+        
+          return view("Meetings/PastMeetings")->with("pasts",$pasts);
+          }
+            else{//Si no lo redirigimos a la parte de logueado
+    return view("Meetings/RegisLog");
     }
-
+    }
+    public function showCancelMeetings(){
+        $today_date=date("Y/m/d");
+          if(Auth::check()===true){    
+         $cancel=DB::table("meetings")
+                   ->join("users","USER_CODE","like","users.USER_ID")
+                   ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
+                   ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
+                   ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
+                    whereDate("meetings.MEETING_DATE","<",$today_date)->orderBy("MEETING_DATE","DESC")->simplePaginate(10);
+        
+          return View::make("Meetings/CancelMeetings")->with("pasts",$cancel);
+          }
+            else{//Si no lo redirigimos a la parte de logueado
+    return view("Meetings/RegisLog");
+    }
+    }
     public function create()
     {
         //

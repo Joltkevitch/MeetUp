@@ -37,6 +37,15 @@ and open the template in the editor.
     margin-top: -2%;
     float: right;
 }
+#btn-past{
+    display: inline-block;
+    position: relative;
+    width:20.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
+    left: 20%;
+    float: none;
+}
 @media only screen and (max-width: 1200px) {
     .col-lg-4 {
         width:100%;
@@ -127,17 +136,8 @@ and open the template in the editor.
     background-size:cover;
     background-repeat:no-repeat;
     transition: 0.5s;
-    
-}
-
-.table{
-    position: relative;
-    background-color: rgba(0, 102, 102,0.5);
 }
 #table-today tbody tr:hover {
-    background-color: rgba(0, 130, 130,0.6);
-}
-#table-past tbody tr:hover {
     background-color: rgba(0, 130, 130,0.6);
 }
 #table-yours tbody tr:hover {
@@ -147,8 +147,8 @@ and open the template in the editor.
 .table tbody td, .table tbody tr{
     transition: 0.5s;
 }
-
 .table{
+    background-color: rgba(0, 102, 102,0.5);    
     position: relative;
     width: 90%;
     margin-top: 10px;
@@ -158,11 +158,15 @@ td{
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-height: 65px;
+    padding: 3px;
+    height: 65px;
 }
 .table tbody td{
     color:white;
     font-weight: 600;
     font-family: 'Quicksand', sans-serif;
+    
 }
 .table th{
         font-weight: 900;
@@ -170,10 +174,13 @@ td{
  .btn-primary{
      width: 33%;
      transition: 0.3s;
+    margin: 5px:
 }
 .btn-primary:nth-child(1){
     background-color: #f0ad4e;
      border-color:#eea236;
+     float:left;
+     margin: 5px 0px 5px 0px;
 }
 .btn-primary:nth-child(1):hover{
     background-color: #ec971f;
@@ -182,22 +189,16 @@ td{
 .btn-primary:nth-child(2){
     background-color: #f0ad4e;
      border-color:#eea236;
+     float:right;
+     margin: 5px 0px 5px 0px;
 }
 .btn-primary:nth-child(2):hover{
-    background-color: #ec971f;
-     border-color:#d58512;
-}
-.btn-primary:nth-child(3){
-    background-color: #f0ad4e;
-     border-color:#eea236;
-}
-.btn-primary:nth-child(3):hover{
     background-color: #ec971f;
      border-color:#d58512;
 }
 #table-past,#table-yours{
     display: none;
 }
-table{
-    position: relative;
+.div{
+    margin-top: 10px;
 }
