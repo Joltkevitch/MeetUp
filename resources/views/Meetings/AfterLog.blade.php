@@ -21,7 +21,7 @@
                 <button type='button' class="btn btn-primary btn-lg"  id='btn-todays'>Today's meetings</button>
                 <button class="btn btn-primary btn-lg" id="btn-yours" ><strong>Your meetings</strong></button>
                  <!-- Tabla con las reuniones que se celebran en la fecha actual --> 
-                 @if(isset($todays)) 
+                 @if(!empty($todays)) 
                 <table class=" table table-hover table-responsive" id='table-today'>
                     <thead>
                     <tr>
@@ -47,7 +47,8 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    @else
+                </table>
+                @else
                  <div class="alert alert-info div">
                      <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
                  </div>
@@ -55,7 +56,7 @@
                
                 <!-- Tabla con las reuniones que pertenecen al usuario loggeado [ se muestran a partir de la fecha actial] --> 
                 
-                 @if(isset($yours)) 
+                 @if(!empty($yours) ) 
                 <table class=" table table-hover table-responsive" id='table-yours'>
                     <thead>
                     <tr>
@@ -85,13 +86,12 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    @else
-                 <div class="alert alert-info div">
+                </table>
+                @else
+                 <div class="alert alert-info div" id="booked">
                      <strong>Opps! </strong> You don't have any booked meetings, try to make a reservation.
                  </div>
-                @endif
-                </table>
-                       
+                @endif       
         </div>
             <div class="col-lg-1"></div>
 @endsection

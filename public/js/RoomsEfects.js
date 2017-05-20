@@ -63,7 +63,7 @@ window.onload=function(){
     function IN(){
         if(Wscreen>1199){
         slide();    
-        message.animate({left:"120%",top:"4px",opacity:"1.0"},2000);//2000
+        message.animate({left:"120%",top:"-13px",opacity:"1.0"},2000);//2000
         timer = setInterval(OUT, 7500);
         
         }
@@ -82,11 +82,10 @@ window.onload=function(){
            timer =  setInterval(OUT, 7500);//000
        }
         if(Wscreen>1199){
-            message.animate({left:"120%",top:"4px",opacity:"1.0",zIndex:"2"},2000);//2000
+            message.animate({left:"120%",top:"-13px",opacity:"1.0",zIndex:"2"},2000);//2000
            timer =  setInterval(OUT, 7500);//000
         }
     }
-    
     //Funcion que se activa al hacer click en la descripcion de una habitacion
       function clickRoom(){
           function colors(){

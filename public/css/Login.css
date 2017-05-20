@@ -21,6 +21,11 @@ padding-top:8px;
 font-family: 'Roboto', sans-serif;
 padding-bottom:8px;
 }
+#meetpng{
+    position: relative;
+    width: 150px;
+    height: 50px;
+}
 #nav {
 background-image:url("../imgs/redeem.jpg");
 background-size:cover;
@@ -61,7 +66,7 @@ font-size:20px;
 #brand {
 font-size:25px;
 }
-﻿body{
+body{
 background-color:red;
 font-family: 'Roboto', sans-serif;
 overflow-x: hidden;
@@ -108,14 +113,12 @@ input{
     height: 95%;
 }
 #RightBar {
- right: -22px;
+ position: relative;
+ right: 0;
+ top:-4px;
 }
-#RightBar a{
- height: 95%;
- right: -17px;
-}
+
 #RightBar li a{
- margin-right: 5px;
  width: 100%;
  transition: 0.5s;
   background-color: #286090;
@@ -125,13 +128,16 @@ input{
  background-color: #286090;
 border-color: #204d74;
 }
-
+@media only screen and (max-width: 1366px) {
+        #RightBar li a{
+          right:-15px;
+        }
+}
 #registerForm{
     display: none;
 }
 #log li a, #RightBar li a{
     height: 54px;
-    top:-7px;
 }
 #pass,#newPass{
     margin-top: 8px;

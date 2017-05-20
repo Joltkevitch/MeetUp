@@ -331,6 +331,15 @@ color:#269abc;
             width: 20%;
         }
 }
+@media only screen and (max-width: 1366px) {
+        h1{
+          position: relative;
+          top:-23px;
+        }
+    #gray-window{
+        height: 200%;
+    }
+}
 @media only screen and (max-width: 360px) {
         #profileName{
             right: 0px;
