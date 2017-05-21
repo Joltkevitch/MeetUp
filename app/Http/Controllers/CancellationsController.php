@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class CancellationsController extends Controller
 {
@@ -25,7 +26,7 @@ public function index(Request $requiest){
         "NOTES" => $notes
     ];
     DB::table("cantellations")->insert($data);
-    return view("Meetings/AfterLog");
+    return redirect()->action('LogController@showLog');
 
 }
 }
