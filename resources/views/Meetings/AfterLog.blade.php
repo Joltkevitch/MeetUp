@@ -2,7 +2,7 @@
 <link type ="text/css" href="css/Logged.css" rel="stylesheet" />
 <script src='js/Logged.js'></script>
 @section('Contend')
-    
+<div id="gray-window"></div>
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-10" id="urls">
@@ -58,6 +58,7 @@
                 
                  @if(!empty($yours) ) 
                 <table class=" table table-hover table-responsive" id='table-yours'>
+                    <form>
                     <thead>
                     <tr>
                         <th>Creator</th>
@@ -75,7 +76,7 @@
                     <tbody>
                         @foreach($yours as  $your)
                         <tr>
-                            <td>{{$your->FIRST_NAME}} {{$your->LAST_NAME}}<input type="hidden" value="{{$your->MEETING_NUMBER}}" name="CancelData"></td>
+                            <td>{{$your->FIRST_NAME}} {{$your->LAST_NAME}}</td>
                             <td>{{$your->LOCATION_NAME}}</td>
                             <td>{{$your->NAME}}</td>
                             <td>{{$your->MEETING_DATE}}</td>
@@ -83,10 +84,29 @@
                             <td>{{$your->TIME_TO}}</td>
                             <td>{{$your->USERS_ATT}}</td>
                             <td>{{$your->NOTES}}</td>
+                            <td><button type="button" class="btn btn-danger cancel" value="{{$your->MEETING_NUMBER}}">Cancel</button></td>
                         </tr>
                         @endforeach
                     </tbody>
+                    </form>
                 </table>
+                <div class="alert alert-warning confirmation">
+                            <form action="{{url('Home')}}" method="post">
+                            <div class="form-group" id="sure">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <p><strong>Are you sure you want to cancel this meeting?</strong></p>
+                            <input type="hidden" id="meetnumber" value="" name="CancelData">
+                            <button class="btn btn-danger" id="go" type="button">Yes, I'm sure</button>
+                            <button class="btn btn-warning" id="back" type="button">No, go back</button>
+                            </div>
+                            <div class="form-group" id="notes">
+                                <span><strong>Add some notes:</strong></span>
+                                <button class="btn btn-warning" id="change" type="button">Change my mind</button>
+                                <textarea id="cancel-notes" name="notes" class="form-control" placeholder="Anything specific reason to cancel the meeting?"></textarea>
+                                <button class="btn btn-danger" style="margin:5px, 0px,5px,0px;" type="submit">Cancel Meeting</button>
+                            </div>
+                            </form>
+                        </div>
                 @else
                  <div class="alert alert-info div" id="booked">
                      <strong>Opps! </strong> You don't have any booked meetings, try to make a reservation.

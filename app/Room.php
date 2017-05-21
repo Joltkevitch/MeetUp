@@ -14,6 +14,5 @@ class Room extends Model
     protected $fillable=[""];
     
      public $timestamps = false;
-     
-    
+
 }

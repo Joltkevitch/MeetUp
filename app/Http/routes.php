@@ -76,6 +76,8 @@ Route::get("Profile","UserController@profileShow");
 //Actualizar datos o editar datos de usuario loggeado
 Route::post("profile","UserController@update");
 
+Route::post("Home","CancellationsController@index");
+
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
