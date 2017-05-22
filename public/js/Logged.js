@@ -22,12 +22,13 @@ var wall=$("#gray-window");
 var confir=$(".confirmation");
 var div=$("#problematico");
 var Talert=$(".div:eq(0)");
-var Yalert=$(".div:eq(1)");
+var Yalert=$("#booked");
     
 //Al hacer clikc en uno de los botones, se ajustara la altura del div contenedor y se animara con un fadeIn y un fadeOut
 btn_yours.click(function(){
         today.fadeOut(350);
         Talert.fadeOut(350);
+        console.log(your);
         if(your==0){
             Yalert.delay(350).fadeIn(350);
             div.animate({height:"150px"},100);

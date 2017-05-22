@@ -41,6 +41,7 @@ class UserController extends Controller
     {
        // $newUser= request()->all();
        //Similar a $variable= $_POST["nombreInput"]
+        
         $name= request()->get("Fname");
         $Lname= request()->get("Lname");
         $title= request()->get("Tit");
@@ -61,6 +62,7 @@ class UserController extends Controller
        //User::create($newUser);
          $data[]=[
             "USER_ID"=>NULL,
+            "ROLE_CODE" => 2,
             "FIRST_NAME" =>$name,
             "LAST_NAME" =>$Lname,
             "TITLE"=>$title,
@@ -77,9 +79,20 @@ class UserController extends Controller
         return view("Meetings/NewUser");
     }
     
-    public function show($id)
+    public function showUsers()
     {
-        //
+        if(Auth::check() && Auth::user()->ROLE_CODE == 1){
+            
+            $users=DB::table("users")->
+                join("locations","LOCATION_CODE","like","users.LOCATION_ID")->
+                join("roles","ROLE_ID","like","users.ROLE_CODE")-> select("users.FIRST_NAME","users.LAST_NAME","users.TITLE","locations.LOCATION_NAME","users.EMAIL","users.IS_ACTIVE","roles.ROLE_NAME","roles.ROLE_ID")
+                ->orderBy("users.FIRST_NAME")->simplePaginate(10);
+            
+            return view("Meetings/Admin")->with("users",$users);
+        }
+        else{
+           return redirect()->route('Login'); 
+        }
     }
 
     

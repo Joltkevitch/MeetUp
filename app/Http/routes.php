@@ -39,9 +39,8 @@ Route::get("Welcome",function(){
 //Ruta para volver al formulario e log in, cuando se desloguea un usuario
 Route::get('Logout',"LogController@logOut");
 
-Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
-    return "this page requires that you be logged in and an Admin";
-}]);
+//Ruta en la que solo puede entrar un usuario administrador para ver un listado de usuarios
+Route::get('Admin','UserController@showUsers');
 
 //Ruta para escojer una habitacion
 Route::get("Rooms",[
@@ -68,7 +67,7 @@ Route::get("PastMeetings",[
 //Nos lleva a la vista que nos permite ver las reuniones canceladas 
 Route::get("CancelMeetings",[
     'middelware'=> 'auth',//middelware es una clase ya implementada en laravle para una autentificacion basica de usuarios
-    'uses' => "MeetingsController@showCanelMeetings"]);
+    'uses' => "CancellationsController@showCancelMeetings"]);
 
 //Perfil de usuario loggeado
 Route::get("Profile","UserController@profileShow");
@@ -76,7 +75,7 @@ Route::get("Profile","UserController@profileShow");
 //Actualizar datos o editar datos de usuario loggeado
 Route::post("profile","UserController@update");
 
-Route::post("Home","CancellationsController@index");
+Route::post("Home","CancellationsController@create");
 
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');

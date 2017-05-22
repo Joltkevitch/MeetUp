@@ -23,7 +23,29 @@ and open the template in the editor.
     transition: 0.5s;
     margin-bottom: 1%;
 }
-
+#reserve {
+    display: inline-block;
+    width:20.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
+    float: left;
+}
+#viewCancel {
+    display: inline-block;
+    width:20.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
+    float: right;
+}
+#btn-past{
+    display: inline-block;
+    position: relative;
+    width:20.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
+    left: 20%;
+    float: none;
+}
 @media only screen and (max-width: 1200px) {
     .col-lg-4 {
         width:100%;

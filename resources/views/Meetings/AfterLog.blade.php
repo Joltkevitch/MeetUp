@@ -1,6 +1,6 @@
 @extends('layout')
-<link type ="text/css" href="css/Logged.css" rel="stylesheet" />
-<script src='js/Logged.js'></script>
+<link type ="text/css" href="./css/Logged.css" rel="stylesheet" />
+<script src='./js/Logged.js'></script>
 @section('Contend')
 <div id="gray-window"></div>
         <div class="row">
@@ -13,7 +13,7 @@
               <br />
                 <a href="Rooms" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
                 <a href="PastMeetings" class="btn btn-warning btn-lg" id="btn-past" ><strong>See past meetings</strong></a>
-                <a href="Cancellations" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
+                <a href="CancelMeetings" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-1"></div>

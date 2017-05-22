@@ -23,7 +23,7 @@ class User extends Model implements AuthenticatableContract,
     protected $primaryKey="USER_ID";//Declaramos la clave primaria 
     
     //Datos que pueden ser rellenados desde un formario
-    protected $fillable = ['FIRST_NAME','LAST_NAME','TITLE','LOCATION_ID', 'EMAIL', 'PASSWORD','IS_ACTIVE'];
+    protected $fillable = ["ROLE_CODE",'FIRST_NAME','LAST_NAME','TITLE','LOCATION_ID', 'EMAIL', 'PASSWORD','IS_ACTIVE'];
    
     public $timestamps = false;//indicamos que no tenemos campos create_at y update_at
 

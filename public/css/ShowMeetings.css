@@ -7,10 +7,10 @@ and open the template in the editor.
     Created on : 19-May-2017, 16:39:23
     Author     : Alejandro.Joltkevich
 */
-.col-lg-10{
-    border: 2px solid black;
+.col-lg-10, .col-lg-8{
+    border: 2px solid darkorange;
     border-radius: 8px;
-    background-color: #ed9702;
+    background-color: #eea236;
 }
 .table{
     position: relative;
@@ -41,4 +41,17 @@ td{
 }
 #table-past tbody tr:hover {
     background-color: rgba(0, 130, 130,0.8);
+}
+#past{
+    color:white;
+    text-decoration: underline;
+    font-weight: 600;
+    position: absolute;
+    left:40%;
+    z-index: 0;
+}
+.div{
+    margin-top: 60px;
+    font-size: 18px;
+    text-align: center;
 }

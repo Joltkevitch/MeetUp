@@ -4,9 +4,10 @@
 <div class="row">
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
-    <h2>Past Meetings:</h2>
-    </table>
-                 @if(isset($pasts)) 
+    <a href="Rooms" class="btn btn-primary btn-lg" id="reserve" style="margin-top:5px;"><strong>Make a reservation </strong></a>
+    <a href="CancelMeetings" class="btn btn-danger btn-lg" id="viewCancel" style="margin-top:5px; "><strong>Cancel meetings </strong></a>
+    <h2 id="past">Past Meetings</h2>
+                 @if(count($pasts) > 1) 
                 <table class=" table table-hover table-responsive" id='table-past'>
                     <thead>
                     <tr>
@@ -34,14 +35,13 @@
                         </tr>
                         @endforeach
                     </tbody> 
-                    
                     @else
                  <div class="alert alert-info div">
-                     <strong>Opps! </strong> There are not past meetings available, weird huh?.
+                     <strong>Opps! </strong> There are not past meetings available, weird huh?
                  </div>
                 @endif
                 </table>
-    
+    {!! $pasts ->render() !!}
 </div>
 <div class="col-lg-1"></div>
 </div>
