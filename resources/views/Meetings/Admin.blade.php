@@ -29,7 +29,6 @@
             <th></th>
         </tr>
         <tbody>
-            
             @foreach($users as $user)
             <tr>
                 <td>{{ $user->FIRST_NAME }}</td>
@@ -37,11 +36,11 @@
                 <td>{{ $user->TITLE }}</td>
                 <td>{{ $user->LOCATION_NAME }}</td>
                 <td>{{ $user->EMAIL}}</td>
-                <td>{{ $user->IS_ACTIVE }}</td>
+                <td class="working">{{ $user->IS_ACTIVE }}</td>
                 <td>{{ $user->ROLE_NAME }}</td>
                 <td><button class="btn btn-primary" id="role">Change Role</button></td>
                 <td><button class="btn btn-success" id="enable">Enable User</button></td>
-                <td><button class="btn btn-danger" id="disabled">Disabled User</button></td> 
+                <td><button class="btn btn-danger"  id="disabled">Disabled User</button></td> 
             </tr>
             @endforeach
         </tbody>
