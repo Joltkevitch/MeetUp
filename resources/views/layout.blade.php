@@ -34,8 +34,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right " id="RightBar">
                 @if(Auth::check())
-                <li class='dropdown'id="profileName"><a  class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>{{ Auth::user()->FIRST_NAME }} </a>
-                <ul class="dropdown-menu">
+                <li class='dropdown'id="profileName"><a  class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" href="#" id="ProfileName"><span class="caret"></span>{{ Auth::user()->FIRST_NAME }} </a>
+                <ul class="dropdown-menu" id="menu">
                 <li id="logout"><a  class="btn btn-primary btn-xs " href="Logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                  <li id="profile">
                      <a  class="btn btn-primary btn-xs " href="Profile">

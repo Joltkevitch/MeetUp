@@ -1,10 +1,6 @@
 // JavaScript source code
 window.onload=function(){
     
-    // Asignacion de eventos a los botones de Log In y Register
-        document.getElementById("buttonLog").addEventListener("click", login);
-        document.getElementById("register").addEventListener("click", register);
-        
         //Variables para coger los valores de los inputs tipo [TEXT/EMAIL] del formulario
         var email=document.getElementById("newEmail");
         var Username=document.getElementById("Name");
@@ -25,23 +21,6 @@ window.onload=function(){
         var Title=/^[a-zA-Z\-\s]{3,30}$/;
         var pass=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,45}$/;
         
-        
-        
-        // Funcion para cambiar de formulario
-     function register(){
-         document.getElementById("PageTitle").innerHTML="MeetUp-Register";
-         $("#login").slideUp(500, "linear",function(){
-         $("#registerForm").fadeIn(600,"linear");
-         $("#log").fadeIn(500,"linear");
-         });
-    };
-      function login(){
-          document.getElementById("PageTitle").innerHTML="MeetUp-Log in";
-             $("#registerForm").slideUp(500,"swing",function(){
-             $("#login").fadeIn(500,"linear");
-             $("#log").fadeOut(500,"linear");
-             });
-      };
      //Las funciones de validacion solo cambiaran el color del input dependiendo de si encaja con la expresion regular o no
     //Funcio que valida el Email
     function ValidateEmail(){

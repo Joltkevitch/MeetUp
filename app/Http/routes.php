@@ -20,9 +20,7 @@ Route::get('/',[
 //Ruta para ver vista indicando que el usuario ha sido creado correctamente 
 Route::post("congrats","UserController@store");
 
-/*Route::get("Welcome", function (){
-    return view("Meetings/AfterLog");
-});*/
+Route::get("Register","UserController@showRegisForm");
 
 //Ruta que se usa para autentificar al usuario
 Route::post("Welcome","LogController@logIn")->after("auth");// Luego de autentificar
@@ -41,6 +39,8 @@ Route::get('Logout',"LogController@logOut");
 
 //Ruta en la que solo puede entrar un usuario administrador para ver un listado de usuarios
 Route::get('Admin','UserController@showUsers');
+
+Route::post('Admin','UserController@adminControl');
 
 //Ruta para escojer una habitacion
 Route::get("Rooms",[

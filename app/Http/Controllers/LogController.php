@@ -44,7 +44,7 @@ class LogController extends Controller
      
      }
     else{//Si no lo redirigimos a la parte de logueado
-    return view("Meetings/RegisLog");
+    return View::make("Meetings/RegisLog");
     }
         
     }

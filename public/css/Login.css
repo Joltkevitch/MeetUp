@@ -39,6 +39,8 @@ margin-left:2%;
 margin-bottom:10px;
 font-weight:700;
 width:48%;
+position: relative;
+left:24%;
 }
 #register {
 width:48%;
@@ -132,12 +134,22 @@ border-color: #204d74;
           right:-15px;
         }
 }
-#registerForm{
-    display: none;
-}
-#log li a, #RightBar li a{
-    left: 25%;
+#log li a, #ProfileName{
+    left: 10%;
     height: 54px;
+}
+#menu{
+    background-color: rgba(0,0,0,0);
+    padding: 0;
+    left:-20px;
+    box-shadow:0 0px 0px rgba(0,0,0,0);
+    border: 0px solid black;
+}
+#menu li a{
+    width: 70%;
+    padding: 6px;
+    float: left;
+    margin: auto;
 }
 #pass,#newPass{
     margin-top: 8px;
@@ -166,12 +178,12 @@ border-color: #204d74;
     float: right;
 }
 #btn-past{
-    left: 20%;
+    left: 19%;
     float: none;
 }
 #reserve,#btn-past,#viewCancel {
     position: relative;
-    width:20.03%;
+    width:21.03%;
     margin-bottom:2%;
     margin-top: -2%;
     display: inline-block;

@@ -58,7 +58,6 @@
                 
                  @if(!empty($yours) ) 
                 <table class=" table table-hover table-responsive" id='table-yours'>
-                    <form>
                     <thead>
                     <tr>
                         <th>Creator</th>
@@ -88,7 +87,6 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    </form>
                 </table>
                 <div class="alert alert-warning confirmation">
                             <form action="{{url('Home')}}" method="post">

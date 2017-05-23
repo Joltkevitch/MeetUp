@@ -23,7 +23,8 @@ class UserController extends Controller
            
            $userDate=DB::table("users")
                    ->join("locations","users.LOCATION_ID","like","locations.LOCATION_CODE")
-                   ->select("locations.LOCATION_NAME","users.FIRST_NAME","users.LAST_NAME","users.TITLE","users.EMAIL")
+                   ->join("roles","users.ROLE_CODE","like","roles.ROLE_ID")
+                   ->select("locations.LOCATION_NAME","users.FIRST_NAME","users.LAST_NAME","users.TITLE","users.EMAIL","ROLE_CODE","roles.ROLE_NAME")
                    ->where("users.USER_ID","=",Auth::user()->USER_ID)
                    ->first();
            
@@ -33,10 +34,20 @@ class UserController extends Controller
            return redirect()->route('Login');
        }
     }
-    public function create()
-    {
-        //
+    
+    public function showRegisForm(){
+        if(Auth::check() && Auth::user()->ROLE_CODE == 1){
+            
+            return view("Meetings/Register");
+            
+        }
+        else{
+            return redirect()->route('Login');
+        }
+        
     }
+    
+
     public function store(Request $request)
     {
        // $newUser= request()->all();
@@ -85,7 +96,7 @@ class UserController extends Controller
             
             $users=DB::table("users")->
                 join("locations","LOCATION_CODE","like","users.LOCATION_ID")->
-                join("roles","ROLE_ID","like","users.ROLE_CODE")-> select("users.FIRST_NAME","users.LAST_NAME","users.TITLE","locations.LOCATION_NAME","users.EMAIL","users.IS_ACTIVE","roles.ROLE_NAME","roles.ROLE_ID")
+                join("roles","ROLE_ID","like","users.ROLE_CODE")-> select("users.FIRST_NAME","users.LAST_NAME","users.TITLE","locations.LOCATION_NAME","users.EMAIL","users.IS_ACTIVE","roles.ROLE_NAME","roles.ROLE_ID","USER_ID")
                 ->orderBy("users.FIRST_NAME")->simplePaginate(10);
             
             return view("Meetings/Admin")->with("users",$users);
@@ -140,8 +151,35 @@ class UserController extends Controller
             return redirect()->action('UserController@profileShow');
     }
     
-    public function destroy($id)
+    public function adminControl(Request $request)
     {
-        //
-    }
+        $disabled=request()->get("dis");
+        $enable=request()->get("en");
+        $roleChange=request()->get("change");
+        
+        if($disabled != null || $disabled != ""){
+            DB::table("users")->
+                where("USER_ID","=",$disabled)->
+                update(["IS_ACTIVE" => 0]);
+        }
+        
+        if($enable != null || $enable != ""){
+            DB::table("users")->
+                where("USER_ID","=",$enable)->
+                update(["IS_ACTIVE" => 1]);
+        }
+        
+        if($roleChange != null || $roleChange != ""){
+            $UserRole=DB::table("users")->select("ROLE_CODE")->where("USER_ID","LIKE",$roleChange)->first();
+            
+            if($UserRole->ROLE_CODE == 1){ $role= 2;}
+            else{$role=1;}
+            
+            DB::table("users")->
+                where("USER_ID","=",$roleChange)->
+                update(["ROLE_CODE" => $role]);
+        }
+        
+         return redirect()->action('UserController@showUsers');
+        }
 }
