@@ -303,10 +303,10 @@ color:#269abc;
             right: -20px;
         }
         .Data{
-            left: 49%;
+            left: 5%;
         }
         .Data:nth-child(1){
-            left:74%;
+            left:65%;
         }
         #RoomList{
             padding-left: 2%;
@@ -323,12 +323,125 @@ color:#269abc;
               right: 46.1%;
           }
     }
-@media only screen and (max-width: 320px) {
-        #profileName{
-            right: 0px;
+@media only screen and (max-width: 1000px) {
+        #RoomList{
+            height: 60%;
         }
-        #RightBar{
-            width: 20%;
+        .roomdesc{
+            width: 30%;
+        }
+        .Data{
+            left: 1%;
+        }
+        .Data:nth-child(1){
+            left:69%;
+        }
+        #Next{
+            right: 42%;
+            top:37%;
+          }
+
+}
+@media only screen and (max-width: 750px) {
+     .roomdesc{
+            width: 41%;
+        }
+    .roomdesc:nth-child(odd){
+            margin-right: 9%;
+        }
+    #Next{
+            right: 42.8%;
+            top:36%;
+          }
+    #message{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .Data:nth-child(1){
+            left:60%;
+        }
+}
+@media only screen and (max-width: 575px) {
+     .roomdesc{
+            width: 48%;
+        }
+    #Next{
+            right: 42.8%;
+            top:36%;
+          }
+    .Data:nth-child(1){
+            left:48%;
+        }
+    #RoomList {
+        padding-left: 4%;
+    }
+    .roomdesc:nth-child(odd){
+            margin-right: 1%;
+        }
+    #Next{
+            right: 41.8%;
+            top:37%;
+          }
+}
+@media only screen and (max-width: 525px) {
+    .Data:nth-child(1){
+    left:22%;
+    top:-6%;
+     }
+    .Data:nth-child(2){
+    top: -12%;
+    left: 22%
+    }
+}
+@media only screen and (max-width: 414px) {
+    .Data:nth-child(1){
+    left:15%;
+    top:-6%;
+     }
+    .Data:nth-child(2){
+    top: -12%;
+    left: 14%
+    }
+    #Next {
+    right: 39.8%;
+    top: 33%;
+}
+    #RoomList {
+        height: 80%;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .Data:nth-child(1){
+    left:12%;
+    top:-7%;
+     }
+    .Data:nth-child(2){
+    top: -14%;
+    left: 11%
+    }
+    #Next {
+    right: 38.8%;
+    top: 37%;
+}
+}
+@media only screen and (max-width: 320px) {
+    .Data:nth-child(1){
+    left:7%;
+    top:-7.5%;
+     }
+    .Data:nth-child(2){
+    top: -15%;
+    left: 7%
+    }
+    #Next {
+    right: 35.8%;
+    top:210%;
+}
+    .roomdesc{
+        width: 100%;
+    }
+    .roomdesc:last-child{
+            margin-bottom: 30%;
         }
 }
 @media only screen and (max-width: 1366px) {
@@ -349,6 +462,8 @@ color:#269abc;
         }
 
 }
+
+}
 @media only screen and (max-width: 412px) {
         #profileName{
             right: 0px;
@@ -356,17 +471,7 @@ color:#269abc;
         #RightBar{
             width: 20%;
         }
-}
-    @media only screen and (max-width: 1000px) {
-           #profileName{
-            right: -20px;
-        }
-        .Data{
-            left: 10%;
-        }
-        .Data:nth-child(1){
-            left:90%;
-        }
+
 }
     @media only screen and (max-width:1450px) and (min-width: 1199px) {
         .Data{

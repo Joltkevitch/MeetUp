@@ -22,93 +22,9 @@ and open the template in the editor.
     font-size: 18px;
     transition: 0.5s;
     margin-bottom: 1%;
+    margin-top: 2%;
 }
 
-@media only screen and (max-width: 1200px) {
-    .col-lg-4 {
-        width:100%;
-        margin: 20px 5px 0px 5px;
-        height: auto;
-        padding-right:5px;
-        padding-left: 5px;
-        transition: 0.2s;
-    }
-}
-@media only screen and (max-width: 320px) {
-    .col-lg-4 {
-        width:100%;
-        margin: 20px 0px 0px 0px;
-        height: 400px;
-        padding-right:5px;
-        padding-left: 5px;
-        transition: 0.2s;
-    }
-    #reserve, #PastMeetings, #FutureMeetings{
-        position: relative;
-        margin-bottom: 0.5%;
-        width: 100%;
-        transition: 0.2s;
-    }
-    #reserve{
-        margin-top: -20px;
-    }
-}
-@media only screen and (max-width: 360px) {
-    .col-lg-4 {
-        width:100%;
-        margin: 20px 0px 0px 0px;
-        height: 375px;
-        padding-right:5px;
-        padding-left: 5px;
-        transition: 0.2s;
-    }
-    #reserve, #PastMeetings, #FutureMeetings{
-        display: block;
-        margin-bottom: 1%;
-        width: 100%;
-        transition: 0.2s;
-    }
-
-}
-@media only screen and (max-width: 412px) {
-    .col-lg-4 {
-        width:100%;
-        margin: 20px 0px 0px 0px;
-        height: 375px;
-        padding-right:5px;
-        padding-left: 5px;
-        transition: 0.2s;
-    }
-    #reserve, #PastMeetings, #FutureMeetings{
-        position: relative;
-        margin-bottom: 1%;
-        width: 100%;
-        margin-left: 0%;
-        transition: 0.2s;
-    }
-}
-    @media only screen and (max-width: 740px) {
-    .col-lg-4 {
-        width:100%;
-        margin: 20px 0px 0px -0px;
-        height: auto;
-        padding-right:5px;
-        padding-left: 5px;
-        transition: 0.2s;
-    }
-    #reserve, #PastMeetings, #FutureMeetings{
-        position: relative;
-        margin-bottom: 1%;
-        width: 100%;
-        margin-left: 0%;
-        transition: 0.2s;
-    }
-}
-    @media only screen and  (min-width: 1200px) {
-    #problematico {
-        left: 8.33%
-    }
-}
 #problematico{
     background-image:url("../imgs/redeemForm.jpg");
     background-size:cover;
@@ -121,7 +37,9 @@ and open the template in the editor.
 #table-yours tbody tr:hover {
     background-color: rgba(0, 130, 130,0.6);
 }
-
+#table-yours{
+    opacity: 0;
+}
 .table tbody td, .table tbody tr{
     transition: 0.5s;
 }
@@ -131,24 +49,7 @@ and open the template in the editor.
     width: 90%;
     margin-top: 10px;
 }
-td{
-    max-width: 150px;
-    word-wrap: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: 65px;
-    padding: 3px;
-    height: 65px;
-}
-.table tbody td{
-    color:white;
-    font-weight: 600;
-    font-family: 'Quicksand', sans-serif;
-    
-}
-.table th{
-        font-weight: 900;
-}
+
  .btn-primary{
      width: 33%;
      transition: 0.3s;
@@ -174,8 +75,8 @@ td{
     background-color: #ec971f;
      border-color:#d58512;
 }
-#table-past,#table-yours{
-    display: none;
+#div2{
+display: none;
 }
 .div{
     position: relative;
@@ -218,4 +119,48 @@ td{
     position: relative;
     margin: 5px 0px 5px 0px;
     float:right;
+}
+#reserve,#btn-past,#viewCancel {
+    position: relative;
+    width:21.03%;
+    margin-bottom:2%;
+    margin-top: -2%;
+    display: inline-block;
+}
+#reserve {
+    float: left;
+}
+#viewCancel {
+    float: right;
+}
+#btn-past{
+    left: 19%;
+    float: none;
+}
+
+@media only screen and (max-width: 820px) {
+    #urls {
+        transition: 0.2s;
+        height: 40%;
+    }
+   #reserve,#btn-past,#viewCancel{
+        position: relative;
+        margin-bottom: 0.5%;
+        width: 100%;
+        transition: 0.2s;
+        margin-top:2%; 
+    }
+    #reserve{
+        margin-top:-3%; 
+    }
+    #btn-past{
+        left: 0%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    #urls {
+        height: 47%;
+    }
+}
+
 }

@@ -24,13 +24,10 @@
             </div>
             <ul class="nav navbar-nav" id="navUl">
                 @if(Auth::check())
-                 <li><a href={{url('Welcome')}}><strong>Home</strong></a></li>
+                 <li id="home"><a href={{url('Welcome')}}><span class="glyphicon">&#xe021;</span><strong class="place-swich">Home</strong></a></li>
                  @endif
-                <li><a href="https://redeemgroup.sharepoint.com/RedeemIT/SitePages/Home.aspx"><strong>SharePoint</strong></a></li>
-                <li><a href="https://www.hotmail.com"><strong>Hotmail</strong></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right RightBar" id="log">
-                <li><a id="buttonLog"  class="btn btn-primary btn-xs navButton "><span class="glyphicon glyphicon-user"></span>Log In</a></li>
+                <li id="share"><a href="https://redeemgroup.sharepoint.com/RedeemIT/SitePages/Home.aspx"><span class="glyphicon">&#xe086;</span><strong class="place-swich">SharePoint</strong></a></li>
+                <li id="hotmail"><a href="https://www.hotmail.com"><span class="glyphicon">&#x2709;</span><strong class="place-swich">Hotmail</strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right " id="RightBar">
                 @if(Auth::check())

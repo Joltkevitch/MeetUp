@@ -47,6 +47,7 @@ td{
 }
 #past{
     color:white;
+    display: inline-block;
     text-decoration: underline;
     font-weight: 600;
     position: absolute;
@@ -57,4 +58,22 @@ td{
     margin-top: 60px;
     font-size: 18px;
     text-align: center;
+}
+#viewCancel{
+    float: right;
+}
+
+@media only screen and (max-width:700px){
+    #past{
+        display: none;
+    }
+    #viewCancel,#reserve,#btn-past{
+    width: 50%;
+}
+}@media only screen and (max-width:370px){
+
+    #viewCancel,#reserve,#btn-past{
+    width: 100%;
+    display: block;
+}
 }

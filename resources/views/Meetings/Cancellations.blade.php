@@ -1,5 +1,6 @@
 @extends("layout")
 <link href="css/ShowMeetings.css" type="text/css" rel="stylesheet" />
+<link href="css/ShowCancel.css" type="text/css" rel="stylesheet" />
 @section("Contend")
 
 <div class="row">

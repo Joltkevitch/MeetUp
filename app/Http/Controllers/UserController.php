@@ -140,13 +140,18 @@ class UserController extends Controller
            }
            if( request()->get("email") != null || request()->get("email") != ""){
                DB::table("users")
-                       ->where("USER_ID", "like",1)
+                       ->where("USER_ID", "like",$id)
                        ->update(["EMAIL"=> request()->get("email")]);
            }
            if( request()->get("location") != null || request()->get("location") != ""){
                DB::table("users")
-                       ->where("USER_ID", "like",1)
+                       ->where("USER_ID", "like",$id)
                        ->update(["LOCATION_ID"=> request()->get("location")]);
+           } 
+            if( request()->get("role") != Auth::user()->ROLE_CODE ){
+               DB::table("users")
+                       ->where("USER_ID", "like",$id)
+                       ->update(["ROLE_CODE"=> request()->get("role")]);
            }
             return redirect()->action('UserController@profileShow');
     }

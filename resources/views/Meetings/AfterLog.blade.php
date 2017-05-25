@@ -8,7 +8,7 @@
             <div class="col-lg-10" id="urls">
                 <h2>Want to have a meeting? Go ahead</h2>
               <div class=" alert alert-info">
-              <p>Make a meeting reservation! choosing time, day and the people attendig to the meeting, it'll be quick.</p>
+              Make a meeting reservation! choosing time, day and the people attendig to the meeting, it'll be quick.
               </div>  
               <br />
                 <a href="Rooms" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
@@ -16,18 +16,22 @@
                 <a href="CancelMeetings" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
             </div>
             <div class="col-lg-1"></div>
+            </div>
+            <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-10" id="problematico">
                 <button type='button' class="btn btn-primary btn-lg"  id='btn-todays'>Today's meetings</button>
                 <button class="btn btn-primary btn-lg" id="btn-yours" ><strong>Your meetings</strong></button>
                  <!-- Tabla con las reuniones que se celebran en la fecha actual --> 
                  @if(!empty($todays)) 
+                <div id="div1">
                 <table class=" table table-hover table-responsive" id='table-today'>
                     <thead>
                     <tr>
                         <th>Creator</th>
                         <th>Location</th>
                         <th>Room</th>
+                        <td>Date</td>
                         <th>Time from</th>
                         <th>Time to</th>
                         <th>People attending</th>
@@ -40,6 +44,7 @@
                             <td>{{$to->FIRST_NAME}} {{$to->LAST_NAME}}</td>
                             <td>{{$to->LOCATION_NAME}}</td>
                             <td>{{$to->NAME}}</td>
+                            <td>{{$to->MEETING_DATE}}</td>
                             <td>{{$to->TIME_FROM}}</td>
                             <td>{{$to->TIME_TO}}</td>
                             <td>{{$to->USERS_ATT}}</td>
@@ -48,15 +53,15 @@
                         @endforeach
                     </tbody>
                 </table>
+                 </div>
                 @else
                  <div class="alert alert-info div">
                      <strong>Opps! </strong> There are not meetings for today, try to make a reservation.
                  </div>
                 @endif
-               
                 <!-- Tabla con las reuniones que pertenecen al usuario loggeado [ se muestran a partir de la fecha actial] --> 
-                
                  @if(!empty($yours) ) 
+                <div id="div2">
                 <table class=" table table-hover table-responsive" id='table-yours'>
                     <thead>
                     <tr>
@@ -88,6 +93,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
                 <div class="alert alert-warning confirmation">
                             <form action="{{url('Home')}}" method="post">
                             <div class="form-group" id="sure">
@@ -112,4 +118,5 @@
                 @endif       
         </div>
             <div class="col-lg-1"></div>
+        </div>
 @endsection

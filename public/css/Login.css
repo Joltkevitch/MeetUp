@@ -31,7 +31,6 @@ background-image:url("../imgs/redeem.jpg");
 background-size:cover;
 background-repeat:no-repeat;
 color:white;
-font-family: 'Roboto', sans-serif;
 height: 52px;
 }
 #submit {
@@ -73,7 +72,7 @@ font-family: 'Roboto', sans-serif;
 overflow-x: hidden;
 }
 html{
-    overflow: no-display;
+    overflow-x: hidden;
 }
 #Name, #LastName, #Title{
     margin-bottom: 17px;
@@ -116,27 +115,23 @@ input{
 #RightBar {
  position: relative;
  right: 0;
- top:-4px;
+ top:-6px;
 }
 
 #RightBar li a{
  width: 100%;
  transition: 0.5s;
-  background-color: #286090;
-  color:white;
+ background-color: #286090;
+ color:white;
+ text-align: center;
 }
 #RightBar li a:hover{
  background-color: #286090;
 border-color: #204d74;
 }
-@media only screen and (max-width: 1366px) {
-        #RightBar li a{
-          right:-15px;
-        }
-}
-#log li a, #ProfileName{
-    left: 10%;
-    height: 54px;
+
+#ProfileName{
+    height: 56px;
 }
 #menu{
     background-color: rgba(0,0,0,0);
@@ -144,12 +139,87 @@ border-color: #204d74;
     left:-20px;
     box-shadow:0 0px 0px rgba(0,0,0,0);
     border: 0px solid black;
+    top: 60px;
 }
 #menu li a{
     width: 70%;
     padding: 6px;
-    float: left;
+    position: relative;
+    right: 15%;
     margin: auto;
+}
+td{
+    max-width: 150px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 65px;
+    padding: 3px;
+    height: 65px;
+}
+.table tbody td{
+    color:white;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+.table th{
+        font-weight: 900;
+}
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+        max-width: none;
+        padding: 3px;
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+        max-height: none;
+        height: auto;
+	}
+	
+	td:after { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    
+    td .btn-danger{
+        position: relative;
+        left:36%;
+        width: 30%;
+    }
+    
+    td:nth-of-type(1):before { content: "Creator:  ";}
+	td:nth-of-type(2):before { content: "Location: "; }
+	td:nth-of-type(3):before { content: "Room: "; }
+	td:nth-of-type(4):before { content: "Date: "; }
+	td:nth-of-type(5):before { content: "Time from: "; }
+	td:nth-of-type(6):before { content: "Time to: "; }
+	td:nth-of-type(7):before { content: "People attending: "; }
+	td:nth-of-type(8):before { content: "Notes: "; }
 }
 #pass,#newPass{
     margin-top: 8px;
@@ -171,20 +241,78 @@ border-color: #204d74;
 #emailDiv{
     padding-top: 50px;
 }
-#reserve {
-    float: left;
+#navUl li span{
+    display: none;
 }
-#viewCancel {
-    float: right;
+@media only screen and (max-width: 767px) {
+    #RightBar{
+        position: absolute;
+        top:-14px;
+        width: 15%;
+        margin-right: 2px;
+        left: 88%;
+        float: right;
+    } 
+    #navUl li{
+        display: inline-block;
+        top:-50px;
+        left: 25%;
+    }
+    #urls{
+        height: 40%;
+        }
+    #navUl li .place-swich{
+        display: none;
+    }
+    #navUl li span{
+        font-size: 18px;
+        color:black;
+        display: inline-block;
+    }
+    
+    #menu li a{
+        z-index: 5;
+    }
+    
 }
-#btn-past{
-    left: 19%;
-    float: none;
+@media only screen and (max-width: 500px) {
+    #RightBar{
+        width: 22%;
+        left: 83%;
+        
+    }
+s    #navUl li{
+        display: inline-block;
+        top:-50px;
+        left: 35%;
+    }
+    #btn-yours,#btn-todays{
+        width: 50%;
+    }
+    @media only screen and (max-width: 414px) {
+    #RightBar{
+        width: 26%;
+        left: 80%;
+        
+    }
+    #navUl li{
+        display: inline-block;
+        top:-50px;
+        left: 40%;
+        width: 35px;
+    }
+    #urls{
+        height: 50%;
+        }
+    tr{
+        margin-bottom: 10px;
+        }
+    
 }
-#reserve,#btn-past,#viewCancel {
-    position: relative;
-    width:21.03%;
-    margin-bottom:2%;
-    margin-top: -2%;
-    display: inline-block;
-}
+ @media only screen and (max-width: 320px) {
+       #urls{
+        height: 75%;
+        } 
+    }
+
+
