@@ -110,3 +110,10 @@ transition:0.5s;
     padding-left:40px;
     }
 }
+@media only screen and (max-width:530px) {
+    #save{
+        width: 44%;
+        left: 30%;
+    }
+    
+}

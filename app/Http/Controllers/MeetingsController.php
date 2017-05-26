@@ -70,6 +70,8 @@ class MeetingsController extends Controller
            array_push($users,$user);
        }
         
+        
+        
        $value=implode(",",$invited);
        $data[]=[
            "MEETING_NUMBER" => NULL,

@@ -21,6 +21,9 @@ Route::get('/',[
 Route::post("congrats","UserController@store");
 
 Route::get("Register","UserController@showRegisForm");
+Route::get("prueba",function(){
+    return view("Meetings/prueba");
+});
 
 //Ruta que se usa para autentificar al usuario
 Route::post("Welcome","LogController@logIn")->after("auth");// Luego de autentificar

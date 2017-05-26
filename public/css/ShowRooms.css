@@ -289,6 +289,19 @@ color:#269abc;
     .alert-info{
         height: 10%;
     }
+    #hours td {
+    word-wrap: normal;
+    height: 40px;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+   #hours td:before{ content: "  ";}
+
+
+}
 
 @media only screen and (max-width: 1200px) and (min-width: 1000px) {
     #message{
@@ -322,6 +335,15 @@ color:#269abc;
         #Next{
               right: 46.1%;
           }
+    .col-lg-2 #message{
+        width: 100%;
+        top:-100px;
+        text-align: center;
+    }
+    .col-lg-3 #back{
+        top:-145px
+        
+    }
     }
 @media only screen and (max-width: 1000px) {
         #RoomList{
@@ -340,6 +362,20 @@ color:#269abc;
             right: 42%;
             top:37%;
           }
+    .col-lg-2 #message{
+        width: 100%;
+        top:-100px;
+        text-align: center;
+        font-size: 28px;
+    }
+    .col-lg-3 #back{
+        top:-145px
+        
+    }
+    #ReservationEnd{
+        width: 60%;
+        left:19.5%;
+    }
 
 }
 @media only screen and (max-width: 750px) {
@@ -360,6 +396,17 @@ color:#269abc;
     .Data:nth-child(1){
             left:60%;
         }
+    .col-lg-2 #message{
+        font-size: 20px;
+    }
+    .col-lg-3 #back{
+        top:-100px
+        
+    }
+    #ReservationEnd{
+        width: 70%;
+        left:15.5%;
+    }
 }
 @media only screen and (max-width: 575px) {
      .roomdesc{
@@ -382,6 +429,13 @@ color:#269abc;
             right: 41.8%;
             top:37%;
           }
+    .col-lg-2 #message{
+        font-size: 15px;
+    }
+    #ReservationEnd{
+        width: 85%;
+        left:7.5%;
+    }
 }
 @media only screen and (max-width: 525px) {
     .Data:nth-child(1){
@@ -409,6 +463,18 @@ color:#269abc;
     #RoomList {
         height: 80%;
     }
+    .col-lg-2 #message{
+        padding: 2px;
+        font-size: 12px;
+    }
+    .col-lg-3 #back{
+        top:-10px
+        
+    }
+    #ReservationEnd{
+        width: 100%;
+        left:0%;
+    }
 }
 @media only screen and (max-width: 375px) {
     .Data:nth-child(1){
@@ -423,6 +489,9 @@ color:#269abc;
     right: 38.8%;
     top: 37%;
 }
+    .col-lg-2 #message{
+        text-align: left;
+    }
 }
 @media only screen and (max-width: 320px) {
     .Data:nth-child(1){
@@ -443,6 +512,16 @@ color:#269abc;
     .roomdesc:last-child{
             margin-bottom: 30%;
         }
+    .col-lg-2 #message{
+        top: -90px;
+    }
+    #future-hours{
+        width: 37%;
+        margin-left: 68.5%;
+    }
+    #finder{
+        width: 110%;
+    }
 }
 @media only screen and (max-width: 1366px) {
         h1{

@@ -18,6 +18,7 @@
         <input type="text" id="finder" class="form-control" placeholder="Looking for a user?" >
         <a href="Register" class="btn btn-primary" id="new-user">Add user</a>
     <table class="table table-responsive">
+        <thead>
         <tr>
             <th>User name</th>
             <th>Title</th>
@@ -28,6 +29,7 @@
             <th></th>
             <th></th>
         </tr>
+        </thead>
         <tbody>
             @foreach($users as $user)
             <tr class="users">

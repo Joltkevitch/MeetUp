@@ -108,7 +108,8 @@ function disabledHours(){
     
     //Anadimos a todos los "option" dentro del select con el id "users" el evento doble click con la funcion "changeATT"
    for(i=0;i<users.options.length;i++){
-       users.getElementsByTagName("option")[i].addEventListener("dblclick",changeATT);
+       users.getElementsByTagName("option")[i].addEventListener("click",changeATT);
+       users.getElementsByTagName("option")[i].addEventListener("click",changeATT);
      }
      
      //Al hacer doble click sobre cualquier option, se le removera su antiguo evento y se le anadira el mismo con otra funcion que cumplira el mismo papel
@@ -116,15 +117,15 @@ function disabledHours(){
      
    function changeATT(){
        user=this;
-       user.removeEventListener("dblclick",changeATT);
-       user.addEventListener("dblclick",changeUSER);
+       user.removeEventListener("click",changeATT);
+       user.addEventListener("click",changeUSER);
        attending.appendChild(user);
        //users.removeChild(user);
    }
    function changeUSER(){
        user=this;
-       user.removeEventListener("dblclick",changeUSER);
-       user.addEventListener("dblclick",changeATT);
+       user.removeEventListener("click",changeUSER);
+       user.addEventListener("click",changeATT);
       users.appendChild(user);
    }
 
@@ -139,8 +140,11 @@ $(".C").click(function(){
         users.appendChild(user);
          }while( i < attending.getElementsByTagName("option").length);
          for(i=0;i<users.options.length;i++){
-               users.getElementsByTagName("option")[i].addEventListener("dblclick",changeATT);
+               users.getElementsByTagName("option")[i].addEventListener("click",changeATT);
         }
     }
+});
+    $("#attending").change(function(){
+    $('#attending option').prop('selected', true);
 });
 };
