@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => "alejandro.ja@hotamil.es", 'name' => "Alejandro Joltkevitch"],
+    'from' => ['address' => "@hotamil.es", 'name' => "Alejandro Joltkevitch"],
 
     /*
     |--------------------------------------------------------------------------

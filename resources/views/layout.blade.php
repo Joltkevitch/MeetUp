@@ -20,7 +20,7 @@
     <nav class="navbar navbar-inverse" id="nav">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a><img id="meetpng" src="imgs/meetUp_v3.png" /></a>
+                <a><img id="meetpng" src="../imgs/meetUp_v3.png" /></a>
             </div>
             <ul class="nav navbar-nav" id="navUl">
                 @if(Auth::check())
