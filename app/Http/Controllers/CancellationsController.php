@@ -52,7 +52,7 @@ public function showCancelMeetings(){
             ->join("users","USER_CODE","like","users.USER_ID")
             ->join("locations","cantellations.LOCATION_ID","like","locations.LOCATION_CODE")
             ->select("users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","NOTES","CANCEL_DATE")->
-           orderBy("CANCEL_DATE","DESC")->simplePaginate(5);
+           orderBy("CANCEL_DATE","DESC")->simplePaginate(8);
         
           return View("Meetings/Cancellations")->with("cancels",$cancels);
     

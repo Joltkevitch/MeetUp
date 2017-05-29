@@ -97,7 +97,7 @@ class UserController extends Controller
             $users=DB::table("users")->
                 join("locations","LOCATION_CODE","like","users.LOCATION_ID")->
                 join("roles","ROLE_ID","like","users.ROLE_CODE")-> select("users.FIRST_NAME","users.LAST_NAME","users.TITLE","locations.LOCATION_NAME","users.EMAIL","users.IS_ACTIVE","roles.ROLE_NAME","roles.ROLE_ID","USER_ID")
-                ->orderBy("users.FIRST_NAME")->simplePaginate(8);
+                ->orderBy("users.FIRST_NAME")->Paginate(8);
             
             return view("Meetings/Admin")->with("users",$users);
         }

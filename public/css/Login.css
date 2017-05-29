@@ -166,6 +166,21 @@ td{
 .table th{
         font-weight: 900;
 }
+#nex, #prev{
+    width: 100px;
+    color: black;
+    font-weight: 600;
+    position: relative;
+}
+#nex{
+    float: right;
+}
+#render{
+    position: relative;
+    top: -15px;
+    width: 100%;
+    
+}
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {

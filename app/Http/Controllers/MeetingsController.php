@@ -23,7 +23,7 @@ class MeetingsController extends Controller
                    ->join("locations","meetings.LOCATION_ID","like","locations.LOCATION_CODE")
                    ->join("rooms","ROOM_CODE","like","rooms.ROOM_ID")
                    ->select("rooms.NAME",DB::raw("TIME_FORMAT(meetings.TIME_FROM,'%H:%i') as TIME_FROM, TIME_FORMAT(meetings.TIME_TO,'%H:%i') as TIME_TO"),"users.LAST_NAME","users.FIRST_NAME","locations.LOCATION_NAME","USERS_ATT","NOTES","MEETING_DATE")->
-                    whereDate("meetings.MEETING_DATE","<",$today_date)->orderBy("MEETING_DATE","DESC")->simplePaginate(5);
+                    whereDate("meetings.MEETING_DATE","<",$today_date)->orderBy("MEETING_DATE","DESC")->simplePaginate(8);
         
           return view("Meetings/PastMeetings")->with("pasts",$pasts);
           }

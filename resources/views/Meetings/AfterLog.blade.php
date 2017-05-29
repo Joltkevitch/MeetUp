@@ -31,7 +31,7 @@
                         <th>Creator</th>
                         <th>Location</th>
                         <th>Room</th>
-                        <td>Date</td>
+                        <th>Date</th>
                         <th>Time from</th>
                         <th>Time to</th>
                         <th>People attending</th>

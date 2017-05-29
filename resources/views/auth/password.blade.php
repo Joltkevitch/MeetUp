@@ -7,8 +7,8 @@
     <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
 @section('Contend')
 <div class='row'>
-<div class='col-lg-2'></div>
-<div class='col-lg-8 alert alert-info'>
+<div class='col-lg-4'></div>
+<div class='col-lg-4 alert alert-info'>
     <form method="POST" action="/password/email" class="form-group"> 
    {!! csrf_field() !!}
 
@@ -32,6 +32,6 @@
     </div>
 </form>
 </div>
-<div class='col-lg-2'></div>
+<div class='col-lg-4'></div>
 </div>
 @endsection
