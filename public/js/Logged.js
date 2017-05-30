@@ -31,23 +31,21 @@ btn_yours.click(function(){
         table_t.animate({opacity:"0"},300);
         today.delay(351).slideUp(800);
         Talert.slideUp(350);
-        
-        console.log(your);
         if(your==0){
             Yalert.delay(800).slideDown(350);
         }
-        yours.delay(1150).slideDown(350,"swing");
-        table_y.delay(1425).animate({opacity:"1"},350);
+        yours.delay(200).slideDown(600,"swing");
+        table_y.delay(750).animate({opacity:"1"},750);
 });
 btn_today.click(function(){
         table_y.animate({opacity:"0"},300);
         yours.delay(351).slideUp(800);
         Yalert.slideUp(350);
         if(todays==0){
-            Talert.delay(350).slideDown(350);
+            Talert.delay(800).slideDown(350);
         }
-        today.delay(1150).slideDown(350,"swing");
-        table_t.delay(1425).animate({opacity:"1"},350);
+        today.delay(200).slideDown(600,"swing");
+        table_t.delay(750).animate({opacity:"1"},750);
 });
 btn_cancel.click(function(){
     wall.fadeIn(1000,"swing");

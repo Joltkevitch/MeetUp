@@ -8,9 +8,9 @@ and open the template in the editor.
     Author     : Alejandro.Joltkevich
 */
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
- body
+ html
 {
-    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .col-lg-10{
     border:2px solid darkorange;

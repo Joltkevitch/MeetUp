@@ -17,7 +17,7 @@ window.onload=function(){
   
         //Expresiones regulares para validar el email introducido y los nombres
         var emailTest=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var Names= /^[a-zA-Z\-]{3,30}$/;
+        var Names= /^[a-zA-Z\-\s]{3,30}$/;
         var Title=/^[a-zA-Z\-\s]{3,30}$/;
         var pass=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,45}$/;
         
@@ -80,7 +80,7 @@ window.onload=function(){
             title.style.borderColor="white";
         }
         else{
-        if(Title.test(title.value)){
+        if(Names.test(title.value)){
             title.style.backgroundColor="#9ACC7D";
             title.style.borderColor="#5F993E";
         }
@@ -107,5 +107,6 @@ window.onload=function(){
          }
         }
     };
+    
 };
 

@@ -71,8 +71,32 @@
     </div>
      @else
       <div class="alert alert-info div">
-        <strong>Opps! </strong> There are not past meetings available, weird huh?
+        <strong>Opps! </strong> There are not past meetings available on this page.
       </div>
+    <?php
+    $i;
+        $x=0;
+        if(isset($_GET['i'])){
+            if($_GET["i"]>=2){
+            $i=$_GET["i"];
+            $x=$i;
+            }
+            else{
+                $i=1;
+                $x=$i;
+            }
+        }
+        else{
+            $i=1;
+            $x=$i;
+        }
+            if(count($pasts) < 1){
+            $i++;
+            $x--;
+            echo "<a class='btn btn-md btn-primary' id='prev' href='PastMeetings?page=".$x."&i=".$x."'>Previous</a>";
+            echo "<a class='btn btn-md btn-danger disabled'  id='nex'  href='PastMeetings?page=".$i."&i=".$i."'>Next</a>";
+            }
+            ?>
     @endif
     
 </div>
