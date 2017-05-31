@@ -148,7 +148,7 @@ class UserController extends Controller
                        ->where("USER_ID", "like",$id)
                        ->update(["LOCATION_ID"=> request()->get("location")]);
            } 
-            if( request()->get("role") != Auth::user()->ROLE_CODE ){
+            if( request()->get("role") != Auth::user()->ROLE_CODE && request()->get("role") != null || request()->get("role")){
                DB::table("users")
                        ->where("USER_ID", "like",$id)
                        ->update(["ROLE_CODE"=> request()->get("role")]);

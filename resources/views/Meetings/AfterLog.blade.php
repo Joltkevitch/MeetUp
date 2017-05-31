@@ -13,7 +13,7 @@
               <br />
                 <a href="Rooms" class="btn btn-primary btn-lg" id="reserve"><strong>Make a reservation </strong></a>
                 <a href="PastMeetings" class="btn btn-warning btn-lg" id="btn-past" ><strong>See past meetings</strong></a>
-                <a href="CancelMeetings" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancel meetings </strong></a>
+                <a href="CancelMeetings" class="btn btn-danger btn-lg" id="viewCancel"><strong>Cancelled meetings </strong></a>
             </div>
             <div class="col-lg-1"></div>
             </div>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="form-group" id="notes">
                                 <span><strong>Add some notes:</strong></span>
-                                <button class="btn btn-warning" id="change" type="button">Change my mind</button>
+                                <button class="btn btn-warning" id="change" type="button">Changed my mind</button>
                                 <textarea id="cancel-notes" name="notes" class="form-control" placeholder="Anything specific reason to cancel the meeting?"></textarea>
                                 <button class="btn btn-danger" style="margin:5px, 0px,5px,0px;" type="submit">Cancel Meeting</button>
                             </div>

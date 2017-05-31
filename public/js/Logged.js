@@ -26,23 +26,25 @@ var div=$("#problematico");
 var Talert=$(".div:eq(0)");
 var Yalert=$("#booked");
     
-//Al hacer clikc en uno de los botones, se ajustara la altura del div contenedor y se animara con un fadeIn y un fadeOut
+//Al hacer clikc en uno de los botones, se ajustara la altura del div contenedor y se animara con un slideUp y un slideDown
 btn_yours.click(function(){
         table_t.animate({opacity:"0"},300);
+        Talert.animate({opacity:"0"},350).delay(350).slideUp();
         today.delay(351).slideUp(800);
-        Talert.slideUp(350);
         if(your==0){
-            Yalert.delay(800).slideDown(350);
+            yours.delay(200).slideDown(600,"swing");
+            Yalert.delay(750).slideDown().animate({opacity:"1"},750);
         }
         yours.delay(200).slideDown(600,"swing");
         table_y.delay(750).animate({opacity:"1"},750);
 });
 btn_today.click(function(){
         table_y.animate({opacity:"0"},300);
+        Yalert.animate({opacity:"0"},350).delay(350).slideUp();
         yours.delay(351).slideUp(800);
-        Yalert.slideUp(350);
         if(todays==0){
-            Talert.delay(800).slideDown(350);
+            today.delay(200).slideDown(600,"swing");
+            Talert.delay(750).slideDown().animate({opacity:"1"},500);
         }
         today.delay(200).slideDown(600,"swing");
         table_t.delay(750).animate({opacity:"1"},750);

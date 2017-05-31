@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp-mail.outlook.com'),
+    'host' => env('MAIL_HOST', 'smtp.office365.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 465),
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => "@hotamil.es", 'name' => "Alejandro Joltkevitch"],
+    'from' => ['address' => "alejandro.joltkevich@redeemgroup.com", 'name' => "MeetUp"],
 
     /*
     |--------------------------------------------------------------------------

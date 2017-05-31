@@ -50,8 +50,9 @@
                       @if($data->ROLE_CODE == 1)
                       <span class="data">Role:</span>
                       <select  class="form-control" name="role">
-                        <option value="1" selected>Admin</option>
-                        <option value="2" selected>User</option>
+                        <option value="" selected >Select...</option>
+                        <option value="1" >Admin</option>
+                        <option value="2" >User</option>
                       </select>
                       @endif
                       <input type="hidden" name="_token" value="{{csrf_token()}}">

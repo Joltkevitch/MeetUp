@@ -40,7 +40,7 @@
     </div>
     <div class="col-lg-10" id="table-container">
         <table class='table table-responsive  table-borderless' id='hours'>
-                    <h2>Daily calendar:</h2>
+                    <h2 style="color:rgb(0,175,175)">Calendar:</h2>
              <tr>
                     <th id='today' >Today's Date</th>
                 </tr>
