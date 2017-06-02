@@ -122,7 +122,7 @@ class UserController extends Controller
             "tit"=>['min:3','max:20'],
             "email" => ['email','unique:users'],//Email debe ser unico en la tabla USERS
         ]);  
-           $id =request()->get("id");
+           $id =request()->get("id");// id del usuario logueado
            if( request()->get("first") != null || request()->get("first") != ""){
                DB::table("users")
                        ->where("USER_ID", "like", $id)
@@ -158,6 +158,8 @@ class UserController extends Controller
     
     public function adminControl(Request $request)
     {
+        //Deshabilitamos, habilitamos, o cambiamos de rol
+        
         $disabled=request()->get("dis");
         $enable=request()->get("en");
         $roleChange=request()->get("change");

@@ -103,12 +103,4 @@ window.onload=function(){
            document.getElementById("Pick").value=parseInt(roomID);
            roompicked.css("background-color","#33CCFF");
     };
-
-
-
-
 };
-   
-
-
-

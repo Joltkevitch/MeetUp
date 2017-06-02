@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.office365.com'),
+    'host' => env('MAIL_HOST', 'email-smtp.us-east-1.amazonaws.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('AKIAJGPOTS54HMLPVQCA'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('AiuZXPU+wfGZ5y4jIeq7Lh/B06NDXc4DpP3zlSVRNlLW'),
 
     /*
     |--------------------------------------------------------------------------

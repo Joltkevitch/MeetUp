@@ -84,7 +84,7 @@
             $i=1;
             $x=$i;
         }
-            if(count($pasts) < 1){
+            if(count($cancels) < 1){
             $i++;
             $x--;
             echo "<a class='btn btn-md btn-primary' id='prev' href='CancelMeetings?page=".$x."&i=".$x."'>Previous</a>";

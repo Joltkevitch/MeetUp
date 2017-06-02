@@ -143,3 +143,9 @@ only screen and (max-width: 760px),
     }
 
 }
+@media only screen and (max-height: 648px) {
+    .col-lg-12{
+        height: 95%;
+        overflow-y: hidden;
+        }
+}

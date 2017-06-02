@@ -112,7 +112,7 @@ function disabledHours(){
        users.getElementsByTagName("option")[i].addEventListener("click",changeATT);
      }
      
-     //Al hacer doble click sobre cualquier option, se le removera su antiguo evento y se le anadira el mismo con otra funcion que cumplira el mismo papel
+     //Al hacer click sobre cualquier option, se le removera su antiguo evento y se le anadira el mismo con otra funcion que cumplira el mismo papel
      //changeATT nos permite mover un option del select users al select attending (usuarios que iran a la reunion)
      
    function changeATT(){
